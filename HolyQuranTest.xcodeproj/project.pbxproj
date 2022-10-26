@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A269A82909954100F8D058 /* TruncableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269A72909954100F8D058 /* TruncableText.swift */; };
+		84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AA290995E700F8D058 /* SplashScreen.swift */; };
+		84A269AF2909986200F8D058 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AD2909986200F8D058 /* OnboardingView.swift */; };
+		84A269B02909986200F8D058 /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AE2909986200F8D058 /* OnboardingVM.swift */; };
 		84A624E02906A80D00C3F359 /* HolyQuranTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A624DF2906A80D00C3F359 /* HolyQuranTestApp.swift */; };
 		84A624E22906A80D00C3F359 /* AppFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A624E12906A80D00C3F359 /* AppFlowView.swift */; };
 		84A624E42906A80F00C3F359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A624E32906A80F00C3F359 /* Assets.xcassets */; };
@@ -120,6 +124,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84A269A72909954100F8D058 /* TruncableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruncableText.swift; sourceTree = "<group>"; };
+		84A269AA290995E700F8D058 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		84A269AD2909986200F8D058 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		84A269AE2909986200F8D058 /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
 		84A624DC2906A80D00C3F359 /* HolyQuranTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyQuranTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A624DF2906A80D00C3F359 /* HolyQuranTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolyQuranTestApp.swift; sourceTree = "<group>"; };
 		84A624E12906A80D00C3F359 /* AppFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowView.swift; sourceTree = "<group>"; };
@@ -245,6 +253,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84A269A9290995CF00F8D058 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				84A269AC2909983100F8D058 /* Onboarding */,
+				84A269AA290995E700F8D058 /* SplashScreen.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		84A269AC2909983100F8D058 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				84A269AD2909986200F8D058 /* OnboardingView.swift */,
+				84A269AE2909986200F8D058 /* OnboardingVM.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		84A624D32906A80D00C3F359 = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +530,7 @@
 				84A625BE29086ADD00C3F359 /* ErrorView.swift */,
 				84C929A92908A06800C78F29 /* SearchBar.swift */,
 				84C929B0290917E100C78F29 /* ContentWithSpacer.swift */,
+				84A269A72909954100F8D058 /* TruncableText.swift */,
 			);
 			path = GeneralComponents;
 			sourceTree = "<group>";
@@ -591,6 +618,7 @@
 		84C929772908741800C78F29 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				84A269A9290995CF00F8D058 /* Welcome */,
 				84C92981290877A700C78F29 /* Dashboard */,
 			);
 			path = Screen;
@@ -792,8 +820,10 @@
 				84A625C529086ADD00C3F359 /* Color.swift in Sources */,
 				84A625DB29086ADD00C3F359 /* SignUp+Subscriber.swift in Sources */,
 				84C929C529094CF600C78F29 /* QiblaCompass.swift in Sources */,
+				84A269B02909986200F8D058 /* OnboardingVM.swift in Sources */,
 				84A625F129086ADD00C3F359 /* Log.swift in Sources */,
 				84C929A829089B8E00C78F29 /* QiblaVM.swift in Sources */,
+				84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */,
 				84A625D129086ADD00C3F359 /* Resource.swift in Sources */,
 				84A625C929086ADD00C3F359 /* FontBook.swift in Sources */,
 				84A625D529086ADD00C3F359 /* MediaTypeApi.swift in Sources */,
@@ -822,6 +852,7 @@
 				84A625D229086ADD00C3F359 /* NetworkingService.swift in Sources */,
 				84A6260C29086ADE00C3F359 /* RadioButtonGroup.swift in Sources */,
 				84A625EA29086ADD00C3F359 /* CustomImage.swift in Sources */,
+				84A269A82909954100F8D058 /* TruncableText.swift in Sources */,
 				84C929AA2908A06800C78F29 /* SearchBar.swift in Sources */,
 				84C929AF290914DE00C78F29 /* SettingsVM.swift in Sources */,
 				84A625F629086ADE00C3F359 /* MyPrint.swift in Sources */,
@@ -866,6 +897,7 @@
 				84A6260629086ADE00C3F359 /* InputTextField.swift in Sources */,
 				84A6261129086ADE00C3F359 /* PhotoPicker.swift in Sources */,
 				84A625FF29086ADE00C3F359 /* ListType.swift in Sources */,
+				84A269AF2909986200F8D058 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

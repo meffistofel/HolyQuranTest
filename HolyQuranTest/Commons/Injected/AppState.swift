@@ -22,6 +22,7 @@ extension AppState {
         var quibla = QuiblaView.Routing()
         var settings = SettingsView.Routing()
         var discover = DiscoverView.Routing()
+        var onboarding = OnboardingView.Routing()
     }
 }
 
