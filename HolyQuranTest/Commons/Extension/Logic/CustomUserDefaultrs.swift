@@ -8,12 +8,12 @@
 import Foundation
 
 enum UserDefaultsKeys {
-    static let lastUpdateLocalLocation = "lastUpdateLocalLocation"
+    static let isShowOnboarding = "isShowOnboarding"
 }
 
 extension UserDefaults {
-    @UserDefaultsBacked<Date?>(key: UserDefaultsKeys.lastUpdateLocalLocation)
-    static var lastUpdateLocalLocation: Date?
+    @UserDefaultsBacked<Bool>(key: UserDefaultsKeys.isShowOnboarding)
+    static var isShowOnboarding: Bool = false
 }
 
 private protocol AnyOptional {

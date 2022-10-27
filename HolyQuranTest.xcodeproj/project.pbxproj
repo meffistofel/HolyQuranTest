@@ -10,7 +10,10 @@
 		84A269A82909954100F8D058 /* TruncableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269A72909954100F8D058 /* TruncableText.swift */; };
 		84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AA290995E700F8D058 /* SplashScreen.swift */; };
 		84A269AF2909986200F8D058 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AD2909986200F8D058 /* OnboardingView.swift */; };
-		84A269B02909986200F8D058 /* OnboardingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AE2909986200F8D058 /* OnboardingVM.swift */; };
+		84A269B52909A4E900F8D058 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269B22909A4E900F8D058 /* CircleButton.swift */; };
+		84A269B62909A4E900F8D058 /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269B32909A4E900F8D058 /* SwiperView.swift */; };
+		84A269B72909A4E900F8D058 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269B42909A4E900F8D058 /* PageView.swift */; };
+		84A269B92909B3E000F8D058 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269B82909B3E000F8D058 /* ContentView.swift */; };
 		84A624E02906A80D00C3F359 /* HolyQuranTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A624DF2906A80D00C3F359 /* HolyQuranTestApp.swift */; };
 		84A624E22906A80D00C3F359 /* AppFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A624E12906A80D00C3F359 /* AppFlowView.swift */; };
 		84A624E42906A80F00C3F359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A624E32906A80F00C3F359 /* Assets.xcassets */; };
@@ -127,7 +130,10 @@
 		84A269A72909954100F8D058 /* TruncableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruncableText.swift; sourceTree = "<group>"; };
 		84A269AA290995E700F8D058 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		84A269AD2909986200F8D058 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		84A269AE2909986200F8D058 /* OnboardingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVM.swift; sourceTree = "<group>"; };
+		84A269B22909A4E900F8D058 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		84A269B32909A4E900F8D058 /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiperView.swift; sourceTree = "<group>"; };
+		84A269B42909A4E900F8D058 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		84A269B82909B3E000F8D058 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84A624DC2906A80D00C3F359 /* HolyQuranTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyQuranTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A624DF2906A80D00C3F359 /* HolyQuranTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolyQuranTestApp.swift; sourceTree = "<group>"; };
 		84A624E12906A80D00C3F359 /* AppFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowView.swift; sourceTree = "<group>"; };
@@ -266,9 +272,18 @@
 			isa = PBXGroup;
 			children = (
 				84A269AD2909986200F8D058 /* OnboardingView.swift */,
-				84A269AE2909986200F8D058 /* OnboardingVM.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		84A269B12909A49400F8D058 /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				84A269B22909A4E900F8D058 /* CircleButton.swift */,
+				84A269B42909A4E900F8D058 /* PageView.swift */,
+				84A269B32909A4E900F8D058 /* SwiperView.swift */,
+			);
+			path = PageController;
 			sourceTree = "<group>";
 		};
 		84A624D32906A80D00C3F359 = {
@@ -301,6 +316,7 @@
 				84A6255829086ADD00C3F359 /* Source */,
 				84A6257A29086ADD00C3F359 /* System */,
 				84A624DF2906A80D00C3F359 /* HolyQuranTestApp.swift */,
+				84A269B82909B3E000F8D058 /* ContentView.swift */,
 				84A624F42907F56200C3F359 /* ProgressCircle.swift */,
 				84A624E32906A80F00C3F359 /* Assets.xcassets */,
 				84A624E52906A80F00C3F359 /* Preview Content */,
@@ -515,6 +531,7 @@
 		84A625A729086ADD00C3F359 /* GeneralComponents */ = {
 			isa = PBXGroup;
 			children = (
+				84A269B12909A49400F8D058 /* PageController */,
 				84C929C429094CF600C78F29 /* QiblaCompass.swift */,
 				84A625A829086ADD00C3F359 /* AdaptiveLabelStyle.swift */,
 				84A625A929086ADD00C3F359 /* InputView */,
@@ -814,13 +831,13 @@
 				84A625E029086ADD00C3F359 /* PushNotificationsHandler.swift in Sources */,
 				84C929A129088F3C00C78F29 /* PrayerRow.swift in Sources */,
 				84A624E22906A80D00C3F359 /* AppFlowView.swift in Sources */,
+				84A269B52909A4E900F8D058 /* CircleButton.swift in Sources */,
 				84A6260029086ADE00C3F359 /* ViewState.swift in Sources */,
 				84A624F72907FA5300C3F359 /* NavBarAppearance.swift in Sources */,
 				84A6260B29086ADE00C3F359 /* LargeButtonType.swift in Sources */,
 				84A625C529086ADD00C3F359 /* Color.swift in Sources */,
 				84A625DB29086ADD00C3F359 /* SignUp+Subscriber.swift in Sources */,
 				84C929C529094CF600C78F29 /* QiblaCompass.swift in Sources */,
-				84A269B02909986200F8D058 /* OnboardingVM.swift in Sources */,
 				84A625F129086ADD00C3F359 /* Log.swift in Sources */,
 				84C929A829089B8E00C78F29 /* QiblaVM.swift in Sources */,
 				84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */,
@@ -847,6 +864,7 @@
 				84A625DA29086ADD00C3F359 /* Keychain.swift in Sources */,
 				84A6261329086ADE00C3F359 /* PushTokenWebRepository.swift in Sources */,
 				84A6260329086ADE00C3F359 /* TextFieldState.swift in Sources */,
+				84A269B72909A4E900F8D058 /* PageView.swift in Sources */,
 				84A625DE29086ADD00C3F359 /* DeepLinksHandler.swift in Sources */,
 				84C929A3290895D900C78F29 /* ContinueRow.swift in Sources */,
 				84A625D229086ADD00C3F359 /* NetworkingService.swift in Sources */,
@@ -861,6 +879,7 @@
 				84A625ED29086ADD00C3F359 /* RootViewAppearance.swift in Sources */,
 				84A6260529086ADE00C3F359 /* InputType.swift in Sources */,
 				84A625D929086ADD00C3F359 /* LoginService.swift in Sources */,
+				84A269B62909A4E900F8D058 /* SwiperView.swift in Sources */,
 				84A625D329086ADD00C3F359 /* HTTP.swift in Sources */,
 				84A625E329086ADD00C3F359 /* Image.swift in Sources */,
 				84A6261029086ADE00C3F359 /* TagNavigationLink.swift in Sources */,
@@ -889,6 +908,7 @@
 				84A625FA29086ADE00C3F359 /* DependencyContiner.swift in Sources */,
 				84A6260F29086ADE00C3F359 /* PickerSelectionState.swift in Sources */,
 				84A6260429086ADE00C3F359 /* CustomTextField.swift in Sources */,
+				84A269B92909B3E000F8D058 /* ContentView.swift in Sources */,
 				84C9299B2908835C00C78F29 /* SegmentedControlButtonView.swift in Sources */,
 				84A625DD29086ADD00C3F359 /* ValidationRule.swift in Sources */,
 				84C9297F290874AD00C78F29 /* HomeView.swift in Sources */,

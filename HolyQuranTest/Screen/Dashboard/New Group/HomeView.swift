@@ -17,7 +17,9 @@ struct HomeView: View {
 
     @Environment(\.container) private var container: DependencyContainer
     @ObservedObject private var viewModel: HomeVM
+
     @State private var routingState: Routing = .init()
+
     @State var isTruncated: Bool = false
     @State var forceFullText: Bool = false
 

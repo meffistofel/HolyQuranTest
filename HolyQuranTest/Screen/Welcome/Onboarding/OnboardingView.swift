@@ -16,8 +16,14 @@ struct OnboardingView: View {
     // MARK: - Wrapped Properties
 
     @Environment(\.container) private var container: DependencyContainer
-    @ObservedObject private var viewModel: OnboardingVM
     @State private var routingState: Routing = .init()
+    @State private var index: Int = 0
+
+    let pages: [PageViewData] = [
+        PageViewData(imageNamed: "1", text: "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring"),
+        PageViewData(imageNamed: "2", text: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated"),
+        PageViewData(imageNamed: "3", text: "A small river named Duden flows by their place and supplies it with the necessary regelialia.")
+    ]
 
     // MARK: - Properties
 
@@ -25,19 +31,20 @@ struct OnboardingView: View {
         $routingState.dispatched(to: container.appState, \.routing.onboarding)
     }
 
-    // MARK: - Init
-
-    init(viewModel: OnboardingVM) {
-        self.viewModel = viewModel
-    }
-
     // MARK: - body View
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .routing(routingBinding: routingBinding.state, with: [.none])
-            .navigationBarTitleDisplayMode(.inline)
-            .onReceive(routingUpdate) { self.routingState = $0 }
+        NavigationView {
+            SwiperView(pages: self.pages, index: self.$index)
+                .navigationAppearance(type: .transparent)
+                .setCustomToolBarItem(placement: .navigationBarTrailing) { skip }
+                .edgesIgnoringSafeArea(.all)
+                .routing(routingBinding: routingBinding.state, with: [.none])
+                .navigationBarTitleDisplayMode(.inline)
+                .onReceive(routingUpdate) { self.routingState = $0 }
+                .onAppear {  UserDefaults.isShowOnboarding = true }
+        }
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -45,6 +52,18 @@ struct OnboardingView: View {
 
 private extension OnboardingView {
 
+    @ViewBuilder
+    var skip: some View {
+        Button {
+            withAnimation {
+                container.appState[\.routing.contentView.onBoardingSkip] = true
+            }
+        } label: {
+            Text("Skip")
+                .customFont(.semibold, size: 16)
+                .foregroundColor(.black)
+        }
+    }
 }
 
 // MARK: - Side Effects
@@ -76,7 +95,10 @@ extension OnboardingView {
 #if DEBUG
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(viewModel: .preview)
+        NavigationView {
+            OnboardingView()
+                .inject(.defaultValue)
+        }
     }
 }
 #endif
