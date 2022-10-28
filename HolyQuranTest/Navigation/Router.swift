@@ -39,6 +39,8 @@ private extension Router {
     @ViewBuilder
     func content(tag: NavigationState) -> some View {
         switch tag {
+        case .activity:
+            ActivityView(viewModel: ActivityVM(appState: container.appState))
         case .none:
             Text("")
 //            SignInView(viewModel: SignInVM(

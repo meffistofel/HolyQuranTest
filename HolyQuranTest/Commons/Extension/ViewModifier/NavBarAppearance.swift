@@ -59,7 +59,7 @@ struct NavBarAppearance: ViewModifier {
 
         // Apply white colored normal and large titles.
         customNavBarAppearance.titleTextAttributes = [.foregroundColor: titleColor, .font: UIFont(name: "Poppins Black", size: 20)!]
-        customNavBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
+        customNavBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor, .font: UIFont(name: "Poppins Black", size: 20)!]
         // Apply white color to all the nav bar buttons.
         let barButtonItemAppearance = UIBarButtonItemAppearance(style: .plain)
         barButtonItemAppearance.normal.titleTextAttributes = [.foregroundColor: buttonColor]

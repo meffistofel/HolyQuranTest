@@ -72,7 +72,7 @@ struct HomeView: View {
                 }
                 .onAppear { progress = 0.56 }
                 .frame(width: geo.size.width)
-                .routing(routingBinding: routingBinding.state, with: [.none])
+                .routing(routingBinding: routingBinding.state, with: [.activity])
                 .setCustomToolBarItem(placement: .principal) { Image(Constants.Image.logo) }
                 .navigationBarTitleDisplayMode(.inline)
                 .onReceive(routingUpdate) { self.routingState = $0 }
@@ -117,7 +117,7 @@ private extension HomeView {
     var weeklyActivity: some View {
         HStack {
             Button {
-                print("Tap")
+                container.appState[\.routing.home.state] = .activity
             } label: {
                 Label("Your weekly activity", systemImage: "arrow.forward")
                     .font(.system(size: 18, weight: .medium))

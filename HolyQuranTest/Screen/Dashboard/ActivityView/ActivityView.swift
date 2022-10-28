@@ -44,21 +44,27 @@ struct ActivityView: View {
     // MARK: - body View
 
     var body: some View {
-        VStack(spacing: 8) {
-            SegmentedControlView(selectedIndex: $selectedCity, segments: [.weekly, .monthly], isNeedUnderLine: false)
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 8) {
+                SegmentedControlView(selectedIndex: $selectedCity, segments: [.weekly, .monthly], isNeedUnderLine: false)
 
-            BarChartView(dataPoints: dataSet[0])
-            
-            BarChartView(dataPoints: dataSet[1])
-            
-            BarChartView(dataPoints: dataSet[2])
-               
-        }
-        .padding(.horizontal, 16)
-        .routing(routingBinding: routingBinding.state, with: [.none])
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBackButton(type: .darkArrow)
+                BarChartView(dataPoints: dataSet[selectedCity])
+                    .id(selectedCity)
+                    .transition(.move(edge: .bottom))
+                    .animation(.default, value: selectedCity)
+                
+                BarChartView(dataPoints: dataSet[selectedCity + 1])
+                
+                BarChartView(dataPoints: dataSet[selectedCity])
+                   
+            }
+            .padding(.horizontal, 16)
+            .routing(routingBinding: routingBinding.state, with: [.none])
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("You activity")
+            .navigationBackButton(type: .darkArrow)
         .onReceive(routingUpdate) { self.routingState = $0 }
+        }
     }
 }
 

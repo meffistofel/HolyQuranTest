@@ -9,4 +9,5 @@ import Foundation
 
 enum NavigationState: Hashable {
     case none
+    case activity
 }

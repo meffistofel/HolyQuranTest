@@ -19,7 +19,7 @@ enum BackButtonType {
         case .whiteArrow:
             Image("button_back_white")
         case .darkArrow:
-            Image("button_back_dark")
+            Image("ico_back_button")
         case let .text(text, color):
             CustomText(text: text, font: (.regular, 16), foregroundColor: color)
                 .lineLimit(1)

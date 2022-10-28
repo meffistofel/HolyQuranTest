@@ -33,7 +33,7 @@ struct SegmentedControlButtonView: View {
         HStack(spacing: 0) {
             ForEach(segments.indices, id: \.self) { index in
                 Button {
-                    selectedIndex = index
+                        selectedIndex = index
                 } label: {
                     Text(segments[index].title)
                         .customFont(index == selectedIndex ? .semibold : .medium, size: 16)
