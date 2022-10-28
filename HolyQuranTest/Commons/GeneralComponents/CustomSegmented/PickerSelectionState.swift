@@ -13,6 +13,8 @@ enum PickerSelectionState {
     case bookmarks
     case map
     case compass
+    case weekly
+    case monthly
 
     var title: String {
         switch self {
@@ -26,6 +28,10 @@ enum PickerSelectionState {
             return "Map".localized()
         case .compass:
             return "Compass".localized()
+        case .weekly:
+            return "Weekly".localized()
+        case .monthly:
+            return "Monthly".localized()
         }
     }
 }

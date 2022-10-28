@@ -38,7 +38,9 @@ struct SignInView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer(minLength: 108)
+            
+            Spacer(minLength: 32)
+           
             Image(Constants.Image.imageSiginInLogo)
                 .padding(.bottom, 24)
             CustomText(text: "Increase Your Spirituality", font: (.bold, 20), foregroundColor: .black)
@@ -48,10 +50,22 @@ struct SignInView: View {
                 .padding(.bottom, 24)
                 .padding(.horizontal, 8)
          
+            signInButton
             
-            Text("We respect your privacy. Check out our Policy")
-                .customFont(.semibold, size: 12)
-                .multilineTextAlignment(.center)
+            Spacer(minLength: 108)
+            
+            HStack(spacing: 4) {
+                Text("We respect your privacy. Check out our")
+                    .customFont(.semibold, size: 12)
+                    .multilineTextAlignment(.center)
+                Button {
+                    Log.debug("Policy")
+                } label: {
+                    CustomText(text: "Policy", font: (.semibold, 12), foregroundColor: .blue)
+                }
+            }
+            .padding(.bottom, 16)
+
         }
         .padding(.horizontal, 32)
         .routing(routingBinding: routingBinding.state, with: [.none])
@@ -64,7 +78,31 @@ struct SignInView: View {
 
 private extension SignInView {
 
-    
+    @ViewBuilder
+    var signInButton: some View {
+        VStack {
+           
+            Button {
+                Log.debug("Google")
+            } label: {
+                Label {
+                    Text("Sign In with Google")
+                        .foregroundColor(.white)
+                        .customFont(.semibold, size: 22)
+                } icon: {
+                    Image(Constants.Image.imageGoogleSignIn)
+                }
+
+            }
+            .frame(height: 64)
+            .frame(maxWidth: .infinity)
+            .background(RoundedRectangle(cornerRadius: 8))
+            
+            SignInWithAppleButton(onRequest: onRequest, onCompletion: onCompletion)
+                .frame(height: 64)
+
+        }
+    }
 }
 
 // MARK: - Side Effects

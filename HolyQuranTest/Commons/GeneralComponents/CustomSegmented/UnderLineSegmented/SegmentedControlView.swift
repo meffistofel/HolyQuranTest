@@ -15,10 +15,12 @@ struct SegmentedControlView: View {
     @State private var isScrollable = true
 
     private let segments: [PickerSelectionState]
+    private let isNeedUnderLine: Bool
 
-    init(selectedIndex: Binding<Int>, segments: [PickerSelectionState]) {
+    init(selectedIndex: Binding<Int>, segments: [PickerSelectionState], isNeedUnderLine: Bool = true) {
         self._selectedIndex = selectedIndex
         self.segments = segments
+        self.isNeedUnderLine = isNeedUnderLine
         frames = Array<CGRect>(repeating: .zero, count: segments.count)
     }
 
@@ -26,10 +28,10 @@ struct SegmentedControlView: View {
         VStack {
             if isScrollable {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    SegmentedControlButtonView(selectedIndex: $selectedIndex, frames: $frames, backgroundFrame: $backgroundFrame, isScrollable: $isScrollable, checkIsScrollable: checkIsScrollable, segments: segments)
+                    SegmentedControlButtonView(selectedIndex: $selectedIndex, frames: $frames, backgroundFrame: $backgroundFrame, isScrollable: $isScrollable, checkIsScrollable: checkIsScrollable, segments: segments, isNeedUnderLine: isNeedUnderLine)
                 }
             } else {
-                SegmentedControlButtonView(selectedIndex: $selectedIndex, frames: $frames, backgroundFrame: $backgroundFrame, isScrollable: $isScrollable, checkIsScrollable: checkIsScrollable, segments: segments)
+                SegmentedControlButtonView(selectedIndex: $selectedIndex, frames: $frames, backgroundFrame: $backgroundFrame, isScrollable: $isScrollable, checkIsScrollable: checkIsScrollable, segments: segments, isNeedUnderLine: isNeedUnderLine)
             }
         }
         .background(
