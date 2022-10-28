@@ -25,7 +25,11 @@ extension Constants {
         static let iconSearch = "icon_search"
         static let iconQuranSettings = "icon_quran_settings"
         static let logo = "logo"
+        
+        //Welcome
         static let imageSplashLogo = "image_splash_logo"
+        static let imageSiginInLogo = "image_siginIn_logo"
+        static let imageGoogleSignIn = "image_google_signIn"
 
         //Prayer
         static let iconListening = "icon_listening"

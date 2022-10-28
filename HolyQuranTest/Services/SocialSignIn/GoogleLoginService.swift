@@ -41,7 +41,7 @@ class GoogleLoginService {
             guard let rootViewController = UIApplication.rootVC() else {
                 return
             }
-
+            
             GIDSignIn.sharedInstance.signIn(with: configuration, presenting: rootViewController) { [unowned self] user, error in
                 authenticateUser(for: user, with: error)
             }

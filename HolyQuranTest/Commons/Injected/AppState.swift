@@ -17,13 +17,19 @@ struct AppState: Equatable {
 
 extension AppState {
     struct ViewRouting: Equatable {
+        //Content
         var contentView = ContentView.Routing()
+        
+        //Welcome
+        var onboarding = OnboardingView.Routing()
+        var singIn = SignInView.Routing()
+        
+        //Dashboard
         var home = HomeView.Routing()
         var quran = QuranView.Routing()
         var quibla = QuiblaView.Routing()
         var settings = SettingsView.Routing()
         var discover = DiscoverView.Routing()
-        var onboarding = OnboardingView.Routing()
     }
 }
 
