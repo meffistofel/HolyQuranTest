@@ -15,6 +15,7 @@ struct LargeButton: View {
     private let type: LargeButtonType
     private let font: FontBook
     private let fontSize: CGFloat
+    private let cornerRadius: CGFloat
 
     init(
         type: LargeButtonType,
@@ -22,6 +23,7 @@ struct LargeButton: View {
         buttonHorizontalMargins: CGFloat = 0,
         font: FontBook = .bold,
         fontSize: CGFloat = 16,
+        cornerRadius: CGFloat = 38,
         action: @escaping () -> Void
     ) {
         self.type = type
@@ -30,6 +32,7 @@ struct LargeButton: View {
         self.font = font
         self.fontSize = fontSize
         self.action = action
+        self.cornerRadius = cornerRadius
     }
 
     var body: some View {
@@ -44,7 +47,8 @@ struct LargeButton: View {
                     type: type,
                     isDisabled: disabled,
                     font: font,
-                    fontSize: fontSize
+                    fontSize: fontSize,
+                    cornerRadius: cornerRadius
                 )
             )
             .disabled(disabled)
@@ -59,6 +63,7 @@ struct LargeButtonStyle: ButtonStyle {
     let isDisabled: Bool
     let font: FontBook
     let fontSize: CGFloat
+    let cornerRadius: CGFloat
 
     func makeBody(configuration: Self.Configuration) -> some View {
         let currentForegroundColor = isDisabled || configuration.isPressed ? type.foregroundColor.opacity(0.3) : type.foregroundColor
@@ -66,8 +71,8 @@ struct LargeButtonStyle: ButtonStyle {
             .padding()
             .foregroundColor(currentForegroundColor)
             .background(backgroundCustomColor(with: configuration))
-            .cornerRadius(8)
-            .overlay(type.isNeedBorder ? RoundedRectangle(cornerRadius: 8)
+            .cornerRadius(cornerRadius)
+            .overlay(type.isNeedBorder ? RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(currentForegroundColor, lineWidth: 1)
             : nil)
             .customFont(font, size: fontSize)

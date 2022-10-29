@@ -53,8 +53,10 @@ struct InputTextField: View {
 private extension InputTextField {
 
     @ViewBuilder
-     var promtTextField: some View {
-         CustomText(text: inputType.prompt, font: (.medium, 12), foregroundColor: textFieldState.style.promtColor)
+    var promtTextField: some View {
+        Text("\(inputType.prompt)")
+            .customFont(.medium, size: 12)
+            .foregroundColor(textFieldState.style.promtColor)
             .fixedSize(horizontal: false, vertical: true)
             .animation(.linear(duration: 0.1), value: textFieldState)
     }
@@ -66,7 +68,9 @@ private extension InputTextField {
 
                 //placholder
                 if text.isEmpty {
-                    CustomText(text: inputType.placeholder, font: (.regular, 16), foregroundColor: .gray)
+                    Text("\(inputType.placeholder)")
+                        .customFont(.regular, size: 16)
+                        .foregroundColor(.gray)
                 }
                 textField
                     .autocapitalization(inputType.capitalization)
@@ -132,9 +136,9 @@ private extension InputTextField {
 
     @ViewBuilder
     var errorLabel: some View {
-        CustomText(text: textFieldState == .error ?
-                   inputType.errorMessage :
-                    inputType.errorMessage.isEmpty ? "" : " ", font: (.medium, 12), foregroundColor: .red)
+        Text("\(textFieldState == .error ? inputType.errorMessage : inputType.errorMessage.isEmpty ? "" : " ")")
+            .customFont(.medium, size: 12)
+            .foregroundColor(.red)
             .animation(.linear(duration: 0.1), value: textFieldState)
     }
 }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Introspect
 
 // MARK: - ActivityView
 
@@ -18,17 +19,7 @@ struct ActivityView: View {
     @Environment(\.container) private var container: DependencyContainer
     @ObservedObject private var viewModel: ActivityVM
     @State private var routingState: Routing = .init()
-    
-    let dataSet = [
-        DataSet.dublin,
-        DataSet.milan,
-        DataSet.london
-    ]
-    
-    @State
-    var selectedCity = 0
-    
-
+        
     // MARK: - Properties
 
     private var routingBinding: Binding<Routing> {
@@ -45,33 +36,53 @@ struct ActivityView: View {
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 8) {
-                SegmentedControlView(selectedIndex: $selectedCity, segments: [.weekly, .monthly], isNeedUnderLine: false)
-
-                BarChartView(dataPoints: dataSet[selectedCity])
-                    .id(selectedCity)
-                    .transition(.move(edge: .bottom))
-                    .animation(.default, value: selectedCity)
-                
-                BarChartView(dataPoints: dataSet[selectedCity + 1])
-                
-                BarChartView(dataPoints: dataSet[selectedCity])
-                   
+            VStack {
+            if viewModel.activityState == .weekly {
+                weekly
+            } else {
+                monthly
             }
-            .padding(.horizontal, 16)
-            .routing(routingBinding: routingBinding.state, with: [.none])
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("You activity")
-            .navigationBackButton(type: .darkArrow)
+        }
+        .padding(.horizontal, 16)
+        .routing(routingBinding: routingBinding.state, with: [.setWeeklyGoal])
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("You activity")
+        .navigationBackButton(type: .darkArrow) {
+            container.appState[\.system.tabBarIsHidden] = false
+        }
         .onReceive(routingUpdate) { self.routingState = $0 }
+        .introspectTabBarController { UITabBarController in
+            container.appState[\.system.tabBarIsHidden] = true
         }
     }
+}
 }
 
 // MARK: - ViewBuilder View
 
 private extension ActivityView {
 
+    @ViewBuilder
+    var weekly: some View {
+        VStack(spacing: 8) {
+            SegmentedControlView(selectedIndex: $viewModel.selectedCity, segments: [.weekly, .monthly], isNeedUnderLine: false)
+
+            ForEach(0..<3) { index in
+                BarChartView(dataPoints: viewModel.dataSet[index])
+            }
+            
+            LargeButton(type: .setGoals, buttonHorizontalMargins: 92) {
+                container.appState[\.routing.activity.state] = .setWeeklyGoal
+            }
+            .padding(.top, 24)
+            .frame(height: 50)
+        }
+    }
+    
+    @ViewBuilder
+    var monthly: some View {
+        Text("")
+    }
 }
 
 // MARK: - Side Effects

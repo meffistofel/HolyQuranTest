@@ -43,9 +43,13 @@ struct SignInView: View {
            
             Image(Constants.Image.imageSiginInLogo)
                 .padding(.bottom, 24)
-            CustomText(text: "Increase Your Spirituality", font: (.bold, 20), foregroundColor: .black)
+            Text("Increase Your Spirituality")
+                .customFont(.bold, size: 20)
                 .padding(.bottom, 16)
-            CustomText(text: "Log in to save and synchronize your bookmarked verses and comments across all your devices.", font: (.regular, 14), foregroundColor: .gray)
+                
+            Text("Log in to save and synchronize your bookmarked verses and comments across all your devices.")
+                .customFont(.regular, size: 14)
+                .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 24)
                 .padding(.horizontal, 8)
@@ -61,7 +65,9 @@ struct SignInView: View {
                 Button {
                     Log.debug("Policy")
                 } label: {
-                    CustomText(text: "Policy", font: (.semibold, 12), foregroundColor: .blue)
+                    Text("Policy")
+                        .customFont(.semibold, size: 12)
+                        .foregroundColor(.blue)
                 }
             }
             .padding(.bottom, 16)

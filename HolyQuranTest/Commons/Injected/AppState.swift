@@ -31,6 +31,7 @@ extension AppState {
         var settings = SettingsView.Routing()
         var discover = DiscoverView.Routing()
         var activity = ActivityView.Routing()
+        var setWeeklyGoal = SetWeeklyGoalView.Routing()
     }
 }
 
@@ -38,6 +39,7 @@ extension AppState {
     struct System: Equatable {
         var isActive: Bool = false
         var keyboardHeight: CGFloat = 0
+        var tabBarIsHidden: Bool = false
     }
 }
 

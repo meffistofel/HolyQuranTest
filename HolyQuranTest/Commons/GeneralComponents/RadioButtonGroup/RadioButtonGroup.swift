@@ -64,7 +64,9 @@ struct RadioButton: View {
                 if type == .radioWithImage {
                     Label(id, image: "")
                 } else {
-                    CustomText(text: id, font: (.regular, 16), foregroundColor: selectedID == id ? .orange : .gray)
+                    Text("\(id)")
+                        .customFont(.regular, size: 16)
+                        .foregroundColor(selectedID == id ? .orange : .gray)
                 }
 
                 Spacer()

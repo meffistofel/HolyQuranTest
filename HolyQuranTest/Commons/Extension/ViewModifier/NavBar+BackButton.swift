@@ -21,13 +21,17 @@ enum BackButtonType {
         case .darkArrow:
             Image("ico_back_button")
         case let .text(text, color):
-            CustomText(text: text, font: (.regular, 16), foregroundColor: color)
+            Text("\(text)")
+                .customFont(.regular, size: 16)
+                .foregroundColor(color)
                 .lineLimit(1)
         case let .textWithImage(text, color):
             HStack(spacing: 3) {
                 Image("button_back_dark")
 
-                CustomText(text: text, font: (.regular, 16), foregroundColor: color)
+                Text("\(text)")
+                    .customFont(.regular, size: 16)
+                    .foregroundColor(color)
                     .lineLimit(1)
             }
         }

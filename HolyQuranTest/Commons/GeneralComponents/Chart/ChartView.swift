@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct BarChartView: View {
-    var dataPoints: [MonthDataPoint]
+    var dataPoints: ChartModel
     
     var body: some View {
         
         VStack {
             HStack(spacing: 0) {
-                CustomText(text: "Verses", font: (.medium, 18), foregroundColor: .black)
+                Text(dataPoints.section.title)
+                    .customFont(.medium, size: 18)
                 Spacer()
-                CustomText(text: "Total 45 of 60", font: (.regular, 12), foregroundColor: .black)
+                Text(dataPoints.section.value)
+                    .customFont(.regular, size: 12)
             }
             .padding(.top, 16)
             .padding(.leading, 16)
@@ -24,7 +26,7 @@ struct BarChartView: View {
             .padding(.bottom, 23)
             
             HStack (spacing: 39) {
-                ForEach(dataPoints) {
+                ForEach(dataPoints.model) {
                     BarView(dataPoint: $0)
                 }
             }
@@ -48,6 +50,7 @@ struct BarView: View {
                     .frame(width: 5,
                            height: dataPoint.value * 93.0)
                     .animation(.default, value: dataPoint)
+                    
             }
             Text(dataPoint.name)
                 .font(.system(size: 11))
@@ -58,13 +61,23 @@ struct BarView: View {
 
 struct BarChartView_Previews: PreviewProvider {
     static var previews: some View {
-        BarChartView(dataPoints: DataSet.dublin)
+        BarChartView(dataPoints: .init(section: .init(title: "Verses", value: "139 of 160"), model: DataSet.milan))
     }
 }
 
 enum Month: String, CaseIterable {
     case jan, feb, mar, apr, may, jun,
          jul, aug, sep, oct, nov, dec
+}
+
+struct ChartModel {
+    let section: ChartSection
+    let model: [MonthDataPoint]
+}
+
+struct ChartSection {
+    let title: String
+    let value: String
 }
 
 struct MonthDataPoint: Identifiable, Equatable {

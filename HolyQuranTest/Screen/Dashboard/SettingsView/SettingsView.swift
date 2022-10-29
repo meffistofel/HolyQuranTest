@@ -53,13 +53,14 @@ struct SettingsView: View {
                         support
                             .padding(.bottom, 40)
 
-                        LargeButton(type: .logOut) {
+                        LargeButton(type: .logOut, cornerRadius: 8) {
                             Log.debug("Log Out did Tap")
                         }
-                        .addShadowToRectangle(color: .gray.opacity(0.3), radius: 8, cornerRadius: 8)
+                        .addShadowToRectangle(color: .gray.opacity(0.5), radius: 8, cornerRadius: 8)
                     }
                     .padding(.horizontal, 16)
                     .padding(.top, 24)
+                    .padding(.bottom, 16)
                 }
 //
             }

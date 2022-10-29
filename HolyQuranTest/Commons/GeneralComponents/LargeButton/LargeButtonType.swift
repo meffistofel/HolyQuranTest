@@ -15,7 +15,9 @@ enum LargeButtonType {
     case signUp
     case reset
     case done
+    case cancel
     case logOut
+    case setGoals
 
     // Change & Forgot Password
     case changePassword
@@ -31,12 +33,16 @@ enum LargeButtonType {
 
     var title: String {
         switch self {
+        case .setGoals:
+            return "Set  goals".localized()
+        case .cancel:
+            return "CANCEL".localized()
+        case .done:
+            return "DONE".localized()
         case .accept:
             return "Accept".localized()
         case .reset:
             return "Reset".localized()
-        case .done:
-            return "Done".localized()
         case .changePassword:
             return "Change Password".localized()
         case .goToSigIn:
@@ -57,7 +63,12 @@ enum LargeButtonType {
     }
 
     var isNeedBorder: Bool {
-        return false
+        switch self {
+        case .cancel:
+            return true
+        default:
+            return false
+        }
     }
 
     var isNeedGradient: Bool {
@@ -65,11 +76,21 @@ enum LargeButtonType {
     }
 
     var backgroundColor: Color {
-        return .clear
+        switch self {
+        case .cancel:
+            return .clear
+        default:
+            return .black
+        }
 
     }
 
     var foregroundColor: Color {
-        return .black
+        switch self {
+        case .cancel:
+            return .gray
+        default:
+            return .white
+        }
     }
 }

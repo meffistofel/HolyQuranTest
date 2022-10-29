@@ -19,6 +19,7 @@ enum ActionRowType: CaseIterable {
     case dayVerse
     case achievements
     case zakat
+    case turnPushNotification
 
     var title: String {
         switch self {
@@ -44,6 +45,8 @@ enum ActionRowType: CaseIterable {
             return "Achievements".localized()
         case .zakat:
             return "Zakat".localized()
+        case .turnPushNotification:
+            return "Turn Push notifications on?".localized()
         }
     }
 }

@@ -13,14 +13,23 @@ struct ActionRow<Content: View> : View {
     let content: Content
     let isNeedDivider: (top: Bool, bottom: Bool)
     let padding: (edge: Edge.Set, spacing: CGFloat)
+    var font: (type: FontBook, size: CGFloat)
 
     var onTap: EmptyClosure?
 
 
-    init(menu: ActionRowType, isNeedDivider: (top: Bool, bottom: Bool) = (false, false), padding: (Edge.Set, CGFloat) = (edge: [.top], spacing: 16), onTap: EmptyClosure? = nil, @ViewBuilder content: () -> Content = { Image(Constants.Image.iconArrow) }) {
+    init(
+        menu: ActionRowType,
+        isNeedDivider: (top: Bool, bottom: Bool) = (false, false),
+        padding: (Edge.Set, CGFloat) = (edge: [.top], spacing: 16),
+        font: (type: FontBook, size: CGFloat) = (.bold, 16),
+        onTap: EmptyClosure? = nil,
+        @ViewBuilder content: () -> Content = { Image(Constants.Image.iconArrow) }
+    ) {
         self.menu = menu
         self.isNeedDivider = isNeedDivider
         self.padding = padding
+        self.font = font
         self.onTap = onTap
         self.content = content()
     }
@@ -32,7 +41,7 @@ struct ActionRow<Content: View> : View {
             }
             HStack {
                 Text(menu.title)
-                    .customFont(.bold, size: 16)
+                    .customFont(font.type, size: font.size)
                     .foregroundColor(.black)
                 Spacer()
 

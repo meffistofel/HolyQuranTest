@@ -33,7 +33,9 @@ struct CustomPickerView: View {
                         }
                 }
                 .overlay(
-                    CustomText(text: segment.title, font: (.medium, 16), foregroundColor: selection == segment ? .white : Color.black)
+                    Text("\(segment.title)")
+                        .customFont(.medium, size: 16)
+                        .foregroundColor(selection == segment ? .white : Color.black)
                 )
             }
         }

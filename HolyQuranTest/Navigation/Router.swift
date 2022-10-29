@@ -41,6 +41,8 @@ private extension Router {
         switch tag {
         case .activity:
             ActivityView(viewModel: ActivityVM(appState: container.appState))
+        case .setWeeklyGoal:
+            SetWeeklyGoalView(viewModel: SetWeeklyGoalVM(appState: container.appState))
         case .none:
             Text("")
 //            SignInView(viewModel: SignInVM(

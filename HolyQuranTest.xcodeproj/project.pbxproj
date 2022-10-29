@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5315A2B7290D575000CDC782 /* WeklyAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A2B6290D575000CDC782 /* WeklyAnswer.swift */; };
+		5315A2B9290D575A00CDC782 /* WeeklyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A2B8290D575A00CDC782 /* WeeklyQuestion.swift */; };
+		53251E93290C5CD7000B23BD /* SetWeeklyGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53251E91290C5CD7000B23BD /* SetWeeklyGoalView.swift */; };
+		53251E94290C5CD7000B23BD /* SetWeeklyGoalVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53251E92290C5CD7000B23BD /* SetWeeklyGoalVM.swift */; };
 		5334494A290BF2D90090693B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53344948290BF2D90090693B /* ActivityView.swift */; };
 		5334494B290BF2D90090693B /* ActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53344949290BF2D90090693B /* ActivityVM.swift */; };
 		5334494E290BF4440090693B /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334494D290BF4440090693B /* ChartView.swift */; };
+		53344951290C1F410090693B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 53344950290C1F410090693B /* Introspect */; };
 		533AB6B6290BA99900B3DB31 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 533AB6B5290BA99900B3DB31 /* GoogleSignInSwift */; };
 		53C19ADA290B1ED50025DD22 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53C19AD9290B1ED50025DD22 /* Configuration.plist */; };
 		53C19ADD290B1EE90025DD22 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C19ADB290B1EE90025DD22 /* SignInView.swift */; };
@@ -88,7 +93,6 @@
 		84A6260A29086ADE00C3F359 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625B329086ADD00C3F359 /* LargeButton.swift */; };
 		84A6260B29086ADE00C3F359 /* LargeButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625B429086ADD00C3F359 /* LargeButtonType.swift */; };
 		84A6260C29086ADE00C3F359 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625B629086ADD00C3F359 /* RadioButtonGroup.swift */; };
-		84A6260D29086ADE00C3F359 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625B729086ADD00C3F359 /* CustomText.swift */; };
 		84A6260E29086ADE00C3F359 /* CustomSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625B929086ADD00C3F359 /* CustomSegmented.swift */; };
 		84A6260F29086ADE00C3F359 /* PickerSelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625BA29086ADD00C3F359 /* PickerSelectionState.swift */; };
 		84A6261029086ADE00C3F359 /* TagNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A625BC29086ADD00C3F359 /* TagNavigationLink.swift */; };
@@ -132,6 +136,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5315A2B6290D575000CDC782 /* WeklyAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeklyAnswer.swift; sourceTree = "<group>"; };
+		5315A2B8290D575A00CDC782 /* WeeklyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyQuestion.swift; sourceTree = "<group>"; };
+		53251E91290C5CD7000B23BD /* SetWeeklyGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetWeeklyGoalView.swift; sourceTree = "<group>"; };
+		53251E92290C5CD7000B23BD /* SetWeeklyGoalVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetWeeklyGoalVM.swift; sourceTree = "<group>"; };
 		53344948290BF2D90090693B /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		53344949290BF2D90090693B /* ActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVM.swift; sourceTree = "<group>"; };
 		5334494D290BF4440090693B /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -213,7 +221,6 @@
 		84A625B329086ADD00C3F359 /* LargeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		84A625B429086ADD00C3F359 /* LargeButtonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeButtonType.swift; sourceTree = "<group>"; };
 		84A625B629086ADD00C3F359 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
-		84A625B729086ADD00C3F359 /* CustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		84A625B929086ADD00C3F359 /* CustomSegmented.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmented.swift; sourceTree = "<group>"; };
 		84A625BA29086ADD00C3F359 /* PickerSelectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSelectionState.swift; sourceTree = "<group>"; };
 		84A625BC29086ADD00C3F359 /* TagNavigationLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagNavigationLink.swift; sourceTree = "<group>"; };
@@ -262,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C9296829086E2600C78F29 /* FirebaseAuth in Frameworks */,
+				53344951290C1F410090693B /* Introspect in Frameworks */,
 				533AB6B6290BA99900B3DB31 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +277,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5315A2B5290D573800CDC782 /* WeeklyView */ = {
+			isa = PBXGroup;
+			children = (
+				5315A2B6290D575000CDC782 /* WeklyAnswer.swift */,
+				5315A2B8290D575A00CDC782 /* WeeklyQuestion.swift */,
+			);
+			path = WeeklyView;
+			sourceTree = "<group>";
+		};
+		53251E8F290C5C88000B23BD /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				53251E90290C5CB7000B23BD /* SetWeeklyGoalView */,
+				53344947290BF2A50090693B /* ActivityView */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		53251E90290C5CB7000B23BD /* SetWeeklyGoalView */ = {
+			isa = PBXGroup;
+			children = (
+				53251E91290C5CD7000B23BD /* SetWeeklyGoalView.swift */,
+				53251E92290C5CD7000B23BD /* SetWeeklyGoalVM.swift */,
+			);
+			path = SetWeeklyGoalView;
+			sourceTree = "<group>";
+		};
 		53344947290BF2A50090693B /* ActivityView */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +603,7 @@
 		84A625A729086ADD00C3F359 /* GeneralComponents */ = {
 			isa = PBXGroup;
 			children = (
+				5315A2B5290D573800CDC782 /* WeeklyView */,
 				5334494C290BF42F0090693B /* Chart */,
 				84A269B12909A49400F8D058 /* PageController */,
 				84C929C429094CF600C78F29 /* QiblaCompass.swift */,
@@ -578,7 +614,6 @@
 				84A625B129086ADD00C3F359 /* SheetPresented.swift */,
 				84A625B229086ADD00C3F359 /* LargeButton */,
 				84A625B529086ADD00C3F359 /* RadioButtonGroup */,
-				84A625B729086ADD00C3F359 /* CustomText.swift */,
 				84A625B829086ADD00C3F359 /* CustomSegmented */,
 				84A625BB29086ADD00C3F359 /* TagNavigationLink */,
 				84A625BD29086ADD00C3F359 /* PhotoPicker.swift */,
@@ -692,7 +727,7 @@
 		84C92981290877A700C78F29 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				53344947290BF2A50090693B /* ActivityView */,
+				53251E8F290C5C88000B23BD /* Activity */,
 				84C929BF290941EE00C78F29 /* DiscoverView */,
 				84A624E12906A80D00C3F359 /* AppFlowView.swift */,
 				84C929AB290913FF00C78F29 /* SettingsView */,
@@ -785,6 +820,7 @@
 			packageProductDependencies = (
 				84C9296729086E2600C78F29 /* FirebaseAuth */,
 				533AB6B5290BA99900B3DB31 /* GoogleSignInSwift */,
+				53344950290C1F410090693B /* Introspect */,
 			);
 			productName = HolyQuranTest;
 			productReference = 84A624DC2906A80D00C3F359 /* HolyQuranTest.app */;
@@ -817,6 +853,7 @@
 			packageReferences = (
 				84C9296629086E2600C78F29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				533AB6B4290BA99900B3DB31 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5334494F290C1F410090693B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 84A624DD2906A80D00C3F359 /* Products */;
 			projectDirPath = "";
@@ -919,6 +956,7 @@
 				84A625E229086ADD00C3F359 /* AppEnvironment.swift in Sources */,
 				84A625ED29086ADD00C3F359 /* RootViewAppearance.swift in Sources */,
 				84A6260529086ADE00C3F359 /* InputType.swift in Sources */,
+				5315A2B9290D575A00CDC782 /* WeeklyQuestion.swift in Sources */,
 				84A625D929086ADD00C3F359 /* LoginService.swift in Sources */,
 				84A269B62909A4E900F8D058 /* SwiperView.swift in Sources */,
 				84A625D329086ADD00C3F359 /* HTTP.swift in Sources */,
@@ -927,7 +965,6 @@
 				84A625EB29086ADD00C3F359 /* ColorInvert.swift in Sources */,
 				84A625EC29086ADD00C3F359 /* NavBar+Background.swift in Sources */,
 				5334494B290BF2D90090693B /* ActivityVM.swift in Sources */,
-				84A6260D29086ADE00C3F359 /* CustomText.swift in Sources */,
 				84A625F829086ADE00C3F359 /* Optional.swift in Sources */,
 				84A625F229086ADD00C3F359 /* CustomUserDefaultrs.swift in Sources */,
 				84A625F929086ADE00C3F359 /* AppState.swift in Sources */,
@@ -939,6 +976,7 @@
 				84A625D629086ADD00C3F359 /* UserPermissions.swift in Sources */,
 				84C929C829094D9700C78F29 /* CompassHeading.swift in Sources */,
 				84A625FE29086ADE00C3F359 /* Constants.swift in Sources */,
+				5315A2B7290D575000CDC782 /* WeklyAnswer.swift in Sources */,
 				84A625DF29086ADD00C3F359 /* SystemEventsHandler.swift in Sources */,
 				84A625E929086ADD00C3F359 /* Conditional.swift in Sources */,
 				84A6261529086ADE00C3F359 /* Router.swift in Sources */,
@@ -952,8 +990,10 @@
 				84A6260F29086ADE00C3F359 /* PickerSelectionState.swift in Sources */,
 				84A6260429086ADE00C3F359 /* CustomTextField.swift in Sources */,
 				84A269B92909B3E000F8D058 /* ContentView.swift in Sources */,
+				53251E93290C5CD7000B23BD /* SetWeeklyGoalView.swift in Sources */,
 				84C9299B2908835C00C78F29 /* SegmentedControlButtonView.swift in Sources */,
 				84A625DD29086ADD00C3F359 /* ValidationRule.swift in Sources */,
+				53251E94290C5CD7000B23BD /* SetWeeklyGoalVM.swift in Sources */,
 				84C9297F290874AD00C78F29 /* HomeView.swift in Sources */,
 				84A625D029086ADD00C3F359 /* APIError.swift in Sources */,
 				84C92976290873E100C78F29 /* Substring.swift in Sources */,
@@ -1166,6 +1206,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5334494F290C1F410090693B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		533AB6B4290BA99900B3DB31 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1185,6 +1233,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		53344950290C1F410090693B /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5334494F290C1F410090693B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		533AB6B5290BA99900B3DB31 /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 533AB6B4290BA99900B3DB31 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
