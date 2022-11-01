@@ -81,14 +81,16 @@ private extension SetWeeklyGoalView {
             ActionRow(menu: .turnPushNotification, font: (.medium, 14), content: {
                 Toggle("", isOn: $viewModel.turnPushNotification)
             })
+            
             .padding(.bottom, 66)
             
             HStack(spacing: 13) {
                 LargeButton(type: .cancel) {
-                    container.appState[\.routing.activity.state] = nil
+                    container.appState[\.routing.activity.isPresented] = false
                 }
-                LargeButton(type: .done) {
-                    container.appState[\.routing.activity.state] = nil
+                
+                LargeButton(type: .done, backgroundColor: .black, foregroundColor: .white) {
+                    container.appState[\.routing.activity.isPresented] = false
                 }
             }
         }

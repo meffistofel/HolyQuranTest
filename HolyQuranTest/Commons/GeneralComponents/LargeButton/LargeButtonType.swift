@@ -30,6 +30,8 @@ enum LargeButtonType {
     case search
     case next
     case back
+    
+    case prayerSound
 
     var title: String {
         switch self {
@@ -59,12 +61,14 @@ enum LargeButtonType {
             return "Sign Up".localized()
         case .logOut:
             return "Log Out".localized()
+        case .prayerSound:
+            return ""
         }
     }
 
     var isNeedBorder: Bool {
         switch self {
-        case .cancel:
+        case .cancel, .prayerSound:
             return true
         default:
             return false
@@ -73,16 +77,6 @@ enum LargeButtonType {
 
     var isNeedGradient: Bool {
         return false
-    }
-
-    var backgroundColor: Color {
-        switch self {
-        case .cancel:
-            return .clear
-        default:
-            return .black
-        }
-
     }
 
     var foregroundColor: Color {

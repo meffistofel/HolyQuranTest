@@ -18,7 +18,14 @@ struct SegmentedControlButtonView: View {
     
     let checkIsScrollable: (() -> Void)
     
-    init(selectedIndex: Binding<Int>, frames: Binding<[CGRect]>, backgroundFrame: Binding<CGRect>, isScrollable: Binding<Bool>, checkIsScrollable: (@escaping () -> Void), segments: [PickerSelectionState], isNeedUnderLine: Bool) {
+    init(
+        selectedIndex: Binding<Int>,
+        frames: Binding<[CGRect]>,
+        backgroundFrame: Binding<CGRect>,
+        isScrollable: Binding<Bool>,
+        checkIsScrollable: (@escaping () -> Void),
+        segments: [PickerSelectionState], isNeedUnderLine: Bool
+    ) {
         _selectedIndex = selectedIndex
         _frames = frames
         _backgroundFrame = backgroundFrame

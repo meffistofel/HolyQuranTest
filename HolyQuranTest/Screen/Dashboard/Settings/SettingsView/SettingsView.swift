@@ -53,7 +53,7 @@ struct SettingsView: View {
                         support
                             .padding(.bottom, 40)
 
-                        LargeButton(type: .logOut, cornerRadius: 8) {
+                        LargeButton(type: .logOut, foregroundColor: .black ,cornerRadius: 8) {
                             Log.debug("Log Out did Tap")
                         }
                         .addShadowToRectangle(color: .gray.opacity(0.5), radius: 8, cornerRadius: 8)
@@ -64,11 +64,11 @@ struct SettingsView: View {
                 }
 //
             }
+            .navigationViewStyle(.stack)
             .toolbar(.hidden)
-            .routing(routingBinding: routingBinding.state, with: [.none])
+            .routing(routingBinding: routingBinding.state, with: [.prayerNotifications])
             .onReceive(routingUpdate) { self.routingState = $0 }
         }
-        .navigationViewStyle(.stack)
     }
 }
 
@@ -97,7 +97,9 @@ private extension SettingsView {
                     .customFont(.medium, size: 16)
                     .foregroundColor(.gray)
             }
-            ActionRow(menu: .prayerNotification, onTap: { })
+            ActionRow(menu: .prayerNotification, onTap: {
+                container.appState[\.routing.settings.state] = .prayerNotifications
+            })
             ActionRow(menu: .autoLocation, padding: ([.top], 28), content: { Toggle("", isOn: $viewModel.autoLocation) })
                 .padding(.bottom, 24)
 

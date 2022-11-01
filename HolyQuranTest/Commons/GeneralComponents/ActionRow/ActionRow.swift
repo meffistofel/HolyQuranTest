@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct ActionRow<Content: View> : View {
+struct ActionRow<Content: View, SubContent: View> : View {
 
     let menu: ActionRowType
     let content: Content
+    let subContent: SubContent
     let isNeedDivider: (top: Bool, bottom: Bool)
     let padding: (edge: Edge.Set, spacing: CGFloat)
     var font: (type: FontBook, size: CGFloat)
@@ -23,15 +24,17 @@ struct ActionRow<Content: View> : View {
         isNeedDivider: (top: Bool, bottom: Bool) = (false, false),
         padding: (Edge.Set, CGFloat) = (edge: [.top], spacing: 16),
         font: (type: FontBook, size: CGFloat) = (.bold, 16),
-        onTap: EmptyClosure? = nil,
-        @ViewBuilder content: () -> Content = { Image(Constants.Image.iconArrow) }
+        @ViewBuilder content: () -> Content = { Image(Constants.Image.iconArrow) },
+        @ViewBuilder subContent: () -> SubContent = { EmptyView() },
+        onTap: EmptyClosure? = nil
     ) {
         self.menu = menu
         self.isNeedDivider = isNeedDivider
         self.padding = padding
         self.font = font
-        self.onTap = onTap
         self.content = content()
+        self.subContent = subContent()
+        self.onTap = onTap
     }
 
     var body: some View {
@@ -45,7 +48,10 @@ struct ActionRow<Content: View> : View {
                     .foregroundColor(.black)
                 Spacer()
 
-                content
+                HStack(spacing: 16) {
+                    subContent
+                    content
+                }
             }
             .padding(padding.edge, padding.spacing)
             if isNeedDivider.bottom {
@@ -61,6 +67,6 @@ struct ActionRow<Content: View> : View {
 
 struct ActionRow_Previews: PreviewProvider {
     static var previews: some View {
-        ActionRow(menu: .none)
+        ActionRow(menu: .dayVerse)
     }
 }

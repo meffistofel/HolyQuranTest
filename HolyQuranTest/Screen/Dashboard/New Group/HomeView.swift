@@ -122,7 +122,7 @@ private extension HomeView {
                 Label("Your weekly activity", systemImage: "arrow.forward")
                     .font(.system(size: 18, weight: .medium))
                     .foregroundColor(.black)
-                    .labelStyle(AdaptiveLabelStyle())
+                    .labelStyle(AdaptiveLabelStyle(iconAlignment: .trailing))
                     .padding(.vertical, 30)
                 Spacer()
             }

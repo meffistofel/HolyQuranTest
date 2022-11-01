@@ -7,8 +7,17 @@
 
 import SwiftUI
 
-struct BarChartView: View {
-    var dataPoints: ChartModel
+struct BarChartView<Content>: View where Content: View {
+    
+    let dataPoints: ChartModel
+    var spacing: CGFloat
+    let content: Content
+    
+    init(dataPoints: ChartModel, spacing: CGFloat = 39, @ViewBuilder content: () -> Content) {
+        self.dataPoints = dataPoints
+        self.spacing = spacing
+        self.content = content()
+    }
     
     var body: some View {
         
@@ -25,49 +34,54 @@ struct BarChartView: View {
             .padding(.trailing, 24)
             .padding(.bottom, 23)
             
-            HStack (spacing: 39) {
-                ForEach(dataPoints.model) {
-                    BarView(dataPoint: $0)
-                }
-            }
+            content
         }
         .addShadowToRectangle(color: .gray.opacity(0.3), radius: 3, cornerRadius: 20)
     }
 }
 
 struct BarView: View {
+    
     var dataPoint: MonthDataPoint
+    var width: CGFloat
+    var isNeedText: Bool
     
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
                 Rectangle()
                     .fill(.clear)
-                    .frame(width: 5,
+                    .frame(width: width,
                            height: 93)
                 LinearGradient(colors: [.orange, .orange.opacity(0.5), .red], startPoint: .bottom, endPoint: .top)
-//                    .fill(.blue)
-                    .frame(width: 5,
+                    .frame(width: width,
                            height: dataPoint.value * 93.0)
                     .animation(.default, value: dataPoint)
-                    
             }
-            Text(dataPoint.name)
-                .font(.system(size: 11))
-                .padding(.bottom, 18)
+            if isNeedText {
+                Text(dataPoint.name)
+                    .font(.system(size: 11))
+//                    .padding(.bottom, 18)
+                
+            }
         }
+        .padding(.bottom, 18)
     }
 }
 
 struct BarChartView_Previews: PreviewProvider {
     static var previews: some View {
-        BarChartView(dataPoints: .init(section: .init(title: "Verses", value: "139 of 160"), model: DataSet.milan))
+        BarChartView(dataPoints: .init(section: .init(title: "Verses", value: "139 of 160"), model: DataSet.milan)) { EmptyView() }
     }
 }
 
 enum Month: String, CaseIterable {
     case jan, feb, mar, apr, may, jun,
-         jul, aug, sep, oct, nov, dec
+         jul, aug, sep, oct, nov, dec,
+         jan1, feb2, mar3, apr4, may5, jun6,
+         jul7, aug8, sep9, oct10, nov11, dec12,
+         jan2, feb3, mar4, apr5, may7, jun8,
+         jul9, aug11, sep12, oct3, nov3, dec3
 }
 
 struct ChartModel {
@@ -107,5 +121,32 @@ struct DataSet {
     
     static let london = [
         0.55, 0.40, 0.40, 0.45, 0.50, 0.45
+    ].monthDataPoints()
+    
+    static let dublinMonth = [
+       1, 0.50, 0.55, 0.55, 0.60,
+       1, 0.50, 0.55, 0.55, 0.60,
+       1, 0.50, 0.55, 0.55, 0.60,
+       1, 0.50, 0.55, 0.55, 0.60,
+       1, 0.50, 0.55, 0.55, 0.60,
+       1, 0.50, 0.55, 0.55, 0.60,
+    ].monthDataPoints()
+    
+    static let milanMonth = [
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+    ].monthDataPoints()
+    
+    static let londonMonth = [
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
+        1, 0.50, 0.55, 0.55, 0.60,
     ].monthDataPoints()
 }

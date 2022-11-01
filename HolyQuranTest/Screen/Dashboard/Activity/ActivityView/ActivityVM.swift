@@ -13,15 +13,21 @@ final class ActivityVM: ObservableObject {
 
     // MARK: - Wrapped Properties
     
-    @Published var selectedCity = 0
-    @Published var activityState: PickerSelectionState = .weekly
+    @Published var activity = 0
+    @Published var selectedMonthDate: [Date] = []
 
     // MARK: - Properties
 
-    let dataSet = [
+    let dataSetWeekly = [
         ChartModel(section: ChartSection(title: "Days", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.dublin),
         ChartModel(section: ChartSection(title: "Minutes", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.milan),
         ChartModel(section: ChartSection(title: "Verses", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.london)
+    ]
+    
+    let dataSetMonthly = [
+        ChartModel(section: ChartSection(title: "Days", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.dublinMonth),
+        ChartModel(section: ChartSection(title: "Minutes", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.milanMonth),
+        ChartModel(section: ChartSection(title: "Verses", value: "Total \(Int.random(in: 1...60)) of 60"), model:  DataSet.londonMonth)
     ]
     private let appState: Store<AppState>
 

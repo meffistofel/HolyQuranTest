@@ -20,7 +20,6 @@ final class HomeVM: ObservableObject {
     init(appState: Store<AppState>) {
         self.appState = appState
     }
-    
 }
 
 #if DEBUG

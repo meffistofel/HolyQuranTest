@@ -28,10 +28,14 @@ extension AppState {
         var home = HomeView.Routing()
         var quran = QuranView.Routing()
         var quibla = QuiblaView.Routing()
-        var settings = SettingsView.Routing()
+        
         var discover = DiscoverView.Routing()
         var activity = ActivityView.Routing()
         var setWeeklyGoal = SetWeeklyGoalView.Routing()
+        //settings
+        var settings = SettingsView.Routing()
+        var prayerNotifications = PrayerNotificationsView.Routing()
+        var prayerSound = PrayerSoundView.Routing()
     }
 }
 

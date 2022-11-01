@@ -8,12 +8,32 @@
 import SwiftUI
 
 struct AdaptiveLabelStyle: LabelStyle {
-    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+//    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    
+    var iconAlignment: SpacerType = .leading
+    var spacing: CGFloat = 8
 
     func makeBody(configuration: Self.Configuration) -> some View {
-        HStack {
-            configuration.title
-            configuration.icon
+        if iconAlignment == .bottom {
+            VStack(spacing: spacing) {
+                configuration.title
+                configuration.icon
+            }
+        } else if iconAlignment == .top {
+            VStack(spacing: spacing) {
+                configuration.icon
+                configuration.title
+            }
+        } else if iconAlignment == .leading {
+            HStack(spacing: spacing) {
+                configuration.icon
+                configuration.title
+            }
+        } else {
+            HStack(spacing: spacing) {
+                configuration.title
+                configuration.icon
+            }
         }
 
 //        if verticalSizeClass == .compact {

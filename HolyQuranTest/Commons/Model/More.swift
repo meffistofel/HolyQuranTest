@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ActionRowType: CaseIterable {
+enum ActionRowType {
     case none
     case mode
     case colorTheme
@@ -20,6 +20,8 @@ enum ActionRowType: CaseIterable {
     case achievements
     case zakat
     case turnPushNotification
+    case prayer(String)
+    case preNotification
 
     var title: String {
         switch self {
@@ -47,6 +49,10 @@ enum ActionRowType: CaseIterable {
             return "Zakat".localized()
         case .turnPushNotification:
             return "Turn Push notifications on?".localized()
+        case .preNotification:
+            return "Pre notification"
+        case let .prayer(prayer):
+            return prayer.localized()
         }
     }
 }

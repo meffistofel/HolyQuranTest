@@ -17,7 +17,11 @@ struct SegmentedControlView: View {
     private let segments: [PickerSelectionState]
     private let isNeedUnderLine: Bool
 
-    init(selectedIndex: Binding<Int>, segments: [PickerSelectionState], isNeedUnderLine: Bool = true) {
+    init(
+        selectedIndex: Binding<Int>,
+        segments: [PickerSelectionState],
+        isNeedUnderLine: Bool = true
+    ) {
         self._selectedIndex = selectedIndex
         self.segments = segments
         self.isNeedUnderLine = isNeedUnderLine

@@ -41,8 +41,10 @@ private extension Router {
         switch tag {
         case .activity:
             ActivityView(viewModel: ActivityVM(appState: container.appState))
-        case .setWeeklyGoal:
-            SetWeeklyGoalView(viewModel: SetWeeklyGoalVM(appState: container.appState))
+        case let .prayerSound(prayer):
+            PrayerSoundView(viewModel: PrayerSoundVM(appState: container.appState, prayer: prayer))
+        case .prayerNotifications:
+            PrayerNotificationsView(viewModel: PrayerNotificationsVM(appState: container.appState))
         case .none:
             Text("")
 //            SignInView(viewModel: SignInVM(

@@ -33,18 +33,24 @@ struct ActivityView: View {
     }
 
     // MARK: - body View
-
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-            if viewModel.activityState == .weekly {
-                weekly
-            } else {
-                monthly
+                SegmentedControlView(selectedIndex: $viewModel.activity, segments: [.weekly, .monthly], isNeedUnderLine: false)
+                
+                if viewModel.activity == 0 {
+                    weekly
+                } else {
+                    monthly
+                }
             }
+            .padding(.horizontal, 16)
         }
-        .padding(.horizontal, 16)
-        .routing(routingBinding: routingBinding.state, with: [.setWeeklyGoal])
+        .fullScreenCover(isPresented: routingBinding.isPresented) {
+            SetWeeklyGoalView(viewModel: SetWeeklyGoalVM(appState: container.appState))
+        }
+        .routing(routingBinding: routingBinding.state, with: [.none])
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("You activity")
         .navigationBackButton(type: .darkArrow) {
@@ -56,7 +62,7 @@ struct ActivityView: View {
         }
     }
 }
-}
+
 
 // MARK: - ViewBuilder View
 
@@ -65,14 +71,36 @@ private extension ActivityView {
     @ViewBuilder
     var weekly: some View {
         VStack(spacing: 8) {
-            SegmentedControlView(selectedIndex: $viewModel.selectedCity, segments: [.weekly, .monthly], isNeedUnderLine: false)
+            
+           
 
             ForEach(0..<3) { index in
-                BarChartView(dataPoints: viewModel.dataSet[index])
+                if index == 0 {
+                    BarChartView(dataPoints: viewModel.dataSetWeekly[index]) {
+                        WeeklyCalendar(calendar: .current)
+                    }
+                } else {
+                    let element = viewModel.dataSetWeekly[index].model
+                    let width = setWidthElement(countElement: element.count, spacing: 39)
+                    let spacing = setSpacing(count: element.count, differenct: width + 6)
+                    
+                    BarChartView(dataPoints: viewModel.dataSetWeekly[index]) {
+                        HStack(spacing: spacing) {
+                            ForEach(element) {
+                                BarView(dataPoint: $0, width: width, isNeedText: true)
+                            }
+                        }
+                    }
+                }
             }
             
-            LargeButton(type: .setGoals, buttonHorizontalMargins: 92) {
-                container.appState[\.routing.activity.state] = .setWeeklyGoal
+            LargeButton(
+                type: .setGoals,
+                buttonHorizontalMargins: 92,
+                backgroundColor: .black,
+                foregroundColor: .white
+            ) {
+                container.appState[\.routing.activity.isPresented] = true
             }
             .padding(.top, 24)
             .frame(height: 50)
@@ -81,7 +109,27 @@ private extension ActivityView {
     
     @ViewBuilder
     var monthly: some View {
-        Text("")
+        VStack {
+            MultiDatePicker(anyDays: $viewModel.selectedMonthDate, includeDays: .allDays)
+            
+            ForEach(0..<2) { index in
+                BarChartView(dataPoints: viewModel.dataSetMonthly[index]) {
+                    HStack(spacing: 8) {
+                        ForEach(viewModel.dataSetMonthly[index].model) {
+                            BarView(dataPoint: $0, width: setWidthElement(countElement: viewModel.dataSetMonthly[index].model.count, spacing: 8), isNeedText: false)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func setWidthElement(countElement: Int, spacing: CGFloat) -> CGFloat {
+        (UIScreen.main.bounds.width - 32) / CGFloat(countElement) - spacing - 1
+    }
+    
+    private func setSpacing(count: Int, differenct: CGFloat) -> CGFloat {
+        UIScreen.main.bounds.width / CGFloat(count) - differenct
     }
 }
 
@@ -102,6 +150,7 @@ private extension ActivityView {
 extension ActivityView {
     struct Routing: Equatable {
         var state: NavigationState?
+        var isPresented: Bool = false
     }
 
     var routingUpdate: AnyPublisher<Routing, Never> {
@@ -114,7 +163,11 @@ extension ActivityView {
 #if DEBUG
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityView(viewModel: .preview)
+        Group {
+            ActivityView(viewModel: .preview)
+            ActivityView(viewModel: .preview)
+                .previewDevice("iPhone SE (3rd generation)")
+        }
     }
 }
 #endif

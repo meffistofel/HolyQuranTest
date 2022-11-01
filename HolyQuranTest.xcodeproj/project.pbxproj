@@ -9,8 +9,19 @@
 /* Begin PBXBuildFile section */
 		5315A2B7290D575000CDC782 /* WeklyAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A2B6290D575000CDC782 /* WeklyAnswer.swift */; };
 		5315A2B9290D575A00CDC782 /* WeeklyQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A2B8290D575A00CDC782 /* WeeklyQuestion.swift */; };
+		531EAD99290E4FA000155803 /* Disabled+Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531EAD98290E4FA000155803 /* Disabled+Opacity.swift */; };
+		531EAD9C290E50F100155803 /* PrayerSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531EAD9A290E50F100155803 /* PrayerSoundView.swift */; };
+		531EAD9D290E50F100155803 /* PrayerSoundVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531EAD9B290E50F100155803 /* PrayerSoundVM.swift */; };
 		53251E93290C5CD7000B23BD /* SetWeeklyGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53251E91290C5CD7000B23BD /* SetWeeklyGoalView.swift */; };
 		53251E94290C5CD7000B23BD /* SetWeeklyGoalVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53251E92290C5CD7000B23BD /* SetWeeklyGoalVM.swift */; };
+		53337146290FDE69003952B4 /* MultiDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53337145290FDE69003952B4 /* MultiDatePicker.swift */; };
+		5333714F290FDEB0003952B4 /* MDPMonthYearPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53337148290FDEB0003952B4 /* MDPMonthYearPickerButton.swift */; };
+		53337150290FDEB0003952B4 /* MDPDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53337149290FDEB0003952B4 /* MDPDayView.swift */; };
+		53337151290FDEB0003952B4 /* MDPMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5333714A290FDEB0003952B4 /* MDPMonthView.swift */; };
+		53337152290FDEB0003952B4 /* MDPContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5333714B290FDEB0003952B4 /* MDPContentView.swift */; };
+		53337153290FDEB0003952B4 /* MDPMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5333714C290FDEB0003952B4 /* MDPMonthYearPicker.swift */; };
+		53337154290FDEB0003952B4 /* MDPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5333714D290FDEB0003952B4 /* MDPModel.swift */; };
+		53337155290FDEB0003952B4 /* MDPDayOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5333714E290FDEB0003952B4 /* MDPDayOfMonth.swift */; };
 		5334494A290BF2D90090693B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53344948290BF2D90090693B /* ActivityView.swift */; };
 		5334494B290BF2D90090693B /* ActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53344949290BF2D90090693B /* ActivityVM.swift */; };
 		5334494E290BF4440090693B /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334494D290BF4440090693B /* ChartView.swift */; };
@@ -19,6 +30,11 @@
 		53C19ADA290B1ED50025DD22 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53C19AD9290B1ED50025DD22 /* Configuration.plist */; };
 		53C19ADD290B1EE90025DD22 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C19ADB290B1EE90025DD22 /* SignInView.swift */; };
 		53C19ADE290B1EE90025DD22 /* SignInVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C19ADC290B1EE90025DD22 /* SignInVM.swift */; };
+		53DA7322290ED7F200F22951 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7321290ED7F200F22951 /* Prayer.swift */; };
+		53DA7324290ED84600F22951 /* PrayerSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7323290ED84600F22951 /* PrayerSound.swift */; };
+		53DA7328290EF70700F22951 /* WeeklyCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7327290EF70700F22951 /* WeeklyCalendarView.swift */; };
+		53E26D19290D9E8100EEDF0D /* PrayerNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E26D17290D9E8100EEDF0D /* PrayerNotificationsView.swift */; };
+		53E26D1A290D9E8100EEDF0D /* PrayerNotificationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E26D18290D9E8100EEDF0D /* PrayerNotificationsVM.swift */; };
 		84A269A82909954100F8D058 /* TruncableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269A72909954100F8D058 /* TruncableText.swift */; };
 		84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AA290995E700F8D058 /* SplashScreen.swift */; };
 		84A269AF2909986200F8D058 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A269AD2909986200F8D058 /* OnboardingView.swift */; };
@@ -138,14 +154,30 @@
 /* Begin PBXFileReference section */
 		5315A2B6290D575000CDC782 /* WeklyAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeklyAnswer.swift; sourceTree = "<group>"; };
 		5315A2B8290D575A00CDC782 /* WeeklyQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyQuestion.swift; sourceTree = "<group>"; };
+		531EAD98290E4FA000155803 /* Disabled+Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Disabled+Opacity.swift"; sourceTree = "<group>"; };
+		531EAD9A290E50F100155803 /* PrayerSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSoundView.swift; sourceTree = "<group>"; };
+		531EAD9B290E50F100155803 /* PrayerSoundVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSoundVM.swift; sourceTree = "<group>"; };
 		53251E91290C5CD7000B23BD /* SetWeeklyGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetWeeklyGoalView.swift; sourceTree = "<group>"; };
 		53251E92290C5CD7000B23BD /* SetWeeklyGoalVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetWeeklyGoalVM.swift; sourceTree = "<group>"; };
+		53337145290FDE69003952B4 /* MultiDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDatePicker.swift; sourceTree = "<group>"; };
+		53337148290FDEB0003952B4 /* MDPMonthYearPickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPickerButton.swift; sourceTree = "<group>"; };
+		53337149290FDEB0003952B4 /* MDPDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayView.swift; sourceTree = "<group>"; };
+		5333714A290FDEB0003952B4 /* MDPMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthView.swift; sourceTree = "<group>"; };
+		5333714B290FDEB0003952B4 /* MDPContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPContentView.swift; sourceTree = "<group>"; };
+		5333714C290FDEB0003952B4 /* MDPMonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPicker.swift; sourceTree = "<group>"; };
+		5333714D290FDEB0003952B4 /* MDPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPModel.swift; sourceTree = "<group>"; };
+		5333714E290FDEB0003952B4 /* MDPDayOfMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayOfMonth.swift; sourceTree = "<group>"; };
 		53344948290BF2D90090693B /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		53344949290BF2D90090693B /* ActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVM.swift; sourceTree = "<group>"; };
 		5334494D290BF4440090693B /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		53C19AD9290B1ED50025DD22 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		53C19ADB290B1EE90025DD22 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		53C19ADC290B1EE90025DD22 /* SignInVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVM.swift; sourceTree = "<group>"; };
+		53DA7321290ED7F200F22951 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		53DA7323290ED84600F22951 /* PrayerSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSound.swift; sourceTree = "<group>"; };
+		53DA7327290EF70700F22951 /* WeeklyCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarView.swift; sourceTree = "<group>"; };
+		53E26D17290D9E8100EEDF0D /* PrayerNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerNotificationsView.swift; sourceTree = "<group>"; };
+		53E26D18290D9E8100EEDF0D /* PrayerNotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerNotificationsVM.swift; sourceTree = "<group>"; };
 		84A269A72909954100F8D058 /* TruncableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruncableText.swift; sourceTree = "<group>"; };
 		84A269AA290995E700F8D058 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		84A269AD2909986200F8D058 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -286,6 +318,15 @@
 			path = WeeklyView;
 			sourceTree = "<group>";
 		};
+		531EAD97290E4F3E00155803 /* PrayerSound */ = {
+			isa = PBXGroup;
+			children = (
+				531EAD9A290E50F100155803 /* PrayerSoundView.swift */,
+				531EAD9B290E50F100155803 /* PrayerSoundVM.swift */,
+			);
+			path = PrayerSound;
+			sourceTree = "<group>";
+		};
 		53251E8F290C5C88000B23BD /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +345,29 @@
 			path = SetWeeklyGoalView;
 			sourceTree = "<group>";
 		};
+		53337144290FDE58003952B4 /* MultiDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				53337147290FDEB0003952B4 /* Components */,
+				53337145290FDE69003952B4 /* MultiDatePicker.swift */,
+			);
+			path = MultiDatePicker;
+			sourceTree = "<group>";
+		};
+		53337147290FDEB0003952B4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				53337148290FDEB0003952B4 /* MDPMonthYearPickerButton.swift */,
+				53337149290FDEB0003952B4 /* MDPDayView.swift */,
+				5333714A290FDEB0003952B4 /* MDPMonthView.swift */,
+				5333714B290FDEB0003952B4 /* MDPContentView.swift */,
+				5333714C290FDEB0003952B4 /* MDPMonthYearPicker.swift */,
+				5333714D290FDEB0003952B4 /* MDPModel.swift */,
+				5333714E290FDEB0003952B4 /* MDPDayOfMonth.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		53344947290BF2A50090693B /* ActivityView */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +380,9 @@
 		5334494C290BF42F0090693B /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				5334494D290BF4440090693B /* ChartView.swift */,
+				53337144290FDE58003952B4 /* MultiDatePicker */,
+				53DA732A290EF74500F22951 /* WeeklyCalendar */,
+				53DA7329290EF72900F22951 /* Chart */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -328,6 +394,41 @@
 				53C19ADC290B1EE90025DD22 /* SignInVM.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		53DA7329290EF72900F22951 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				5334494D290BF4440090693B /* ChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		53DA732A290EF74500F22951 /* WeeklyCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				53DA7327290EF70700F22951 /* WeeklyCalendarView.swift */,
+			);
+			path = WeeklyCalendar;
+			sourceTree = "<group>";
+		};
+		53E26D15290D9E3D00EEDF0D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				531EAD97290E4F3E00155803 /* PrayerSound */,
+				53E26D16290D9E4F00EEDF0D /* PrayerNotificationsView */,
+				84C929AB290913FF00C78F29 /* SettingsView */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		53E26D16290D9E4F00EEDF0D /* PrayerNotificationsView */ = {
+			isa = PBXGroup;
+			children = (
+				53E26D17290D9E8100EEDF0D /* PrayerNotificationsView.swift */,
+				53E26D18290D9E8100EEDF0D /* PrayerNotificationsVM.swift */,
+			);
+			path = PrayerNotificationsView;
 			sourceTree = "<group>";
 		};
 		84A269A9290995CF00F8D058 /* Welcome */ = {
@@ -549,6 +650,7 @@
 				84A6258F29086ADD00C3F359 /* CustomAlert.swift */,
 				84A6259029086ADD00C3F359 /* ToolBarItems.swift */,
 				84C929B22909326A00C78F29 /* RectangleShadow.swift */,
+				531EAD98290E4FA000155803 /* Disabled+Opacity.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -596,6 +698,8 @@
 				84A625A429086ADD00C3F359 /* ListType.swift */,
 				84A625A529086ADD00C3F359 /* ViewState.swift */,
 				84A625A629086ADD00C3F359 /* More.swift */,
+				53DA7321290ED7F200F22951 /* Prayer.swift */,
+				53DA7323290ED84600F22951 /* PrayerSound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,7 +834,7 @@
 				53251E8F290C5C88000B23BD /* Activity */,
 				84C929BF290941EE00C78F29 /* DiscoverView */,
 				84A624E12906A80D00C3F359 /* AppFlowView.swift */,
-				84C929AB290913FF00C78F29 /* SettingsView */,
+				53E26D15290D9E3D00EEDF0D /* Settings */,
 				84C929A429089B7E00C78F29 /* QiblaView */,
 				84C92982290877B800C78F29 /* QuranView */,
 				84C929782908742100C78F29 /* HomeView */,
@@ -898,13 +1002,16 @@
 				84C92980290874AD00C78F29 /* HomeVM.swift in Sources */,
 				84A6260929086ADE00C3F359 /* SheetPresented.swift in Sources */,
 				84C9299E29088C6B00C78F29 /* SegmentedControlView.swift in Sources */,
+				53E26D1A290D9E8100EEDF0D /* PrayerNotificationsVM.swift in Sources */,
 				84A625F029086ADD00C3F359 /* Closure.swift in Sources */,
 				84A6261429086ADE00C3F359 /* NavigationState.swift in Sources */,
 				84A625F529086ADE00C3F359 /* String.swift in Sources */,
 				84A625F429086ADE00C3F359 /* SaveLoadingImage.swift in Sources */,
 				84C929B32909326A00C78F29 /* RectangleShadow.swift in Sources */,
 				84A625FC29086ADE00C3F359 /* Store.swift in Sources */,
+				531EAD99290E4FA000155803 /* Disabled+Opacity.swift in Sources */,
 				84A625E029086ADD00C3F359 /* PushNotificationsHandler.swift in Sources */,
+				53337151290FDEB0003952B4 /* MDPMonthView.swift in Sources */,
 				84C929A129088F3C00C78F29 /* PrayerRow.swift in Sources */,
 				84A624E22906A80D00C3F359 /* AppFlowView.swift in Sources */,
 				84A269B52909A4E900F8D058 /* CircleButton.swift in Sources */,
@@ -916,9 +1023,11 @@
 				84A625DB29086ADD00C3F359 /* SignUp+Subscriber.swift in Sources */,
 				84C929C529094CF600C78F29 /* QiblaCompass.swift in Sources */,
 				84A625F129086ADD00C3F359 /* Log.swift in Sources */,
+				53DA7322290ED7F200F22951 /* Prayer.swift in Sources */,
 				84C929A829089B8E00C78F29 /* QiblaVM.swift in Sources */,
 				84A269AB290995E700F8D058 /* SplashScreen.swift in Sources */,
 				84A625D129086ADD00C3F359 /* Resource.swift in Sources */,
+				53DA7328290EF70700F22951 /* WeeklyCalendarView.swift in Sources */,
 				84A625C929086ADD00C3F359 /* FontBook.swift in Sources */,
 				84A625D529086ADD00C3F359 /* MediaTypeApi.swift in Sources */,
 				84A6260129086ADE00C3F359 /* More.swift in Sources */,
@@ -927,9 +1036,11 @@
 				84C929742908702D00C78F29 /* Configuration.swift in Sources */,
 				84C9296F29086F8D00C78F29 /* Fill+Stroke.swift in Sources */,
 				84A625F329086ADE00C3F359 /* Snapshot.swift in Sources */,
+				531EAD9C290E50F100155803 /* PrayerSoundView.swift in Sources */,
 				84C929B1290917E100C78F29 /* ContentWithSpacer.swift in Sources */,
 				84A625E829086ADD00C3F359 /* NavBar+BackButton.swift in Sources */,
 				84A625E129086ADD00C3F359 /* AppDelegate.swift in Sources */,
+				5333714F290FDEB0003952B4 /* MDPMonthYearPickerButton.swift in Sources */,
 				84A6261229086ADE00C3F359 /* ErrorView.swift in Sources */,
 				84C929A729089B8E00C78F29 /* QiblaView.swift in Sources */,
 				84A625F729086ADE00C3F359 /* NSMutableData.swift in Sources */,
@@ -938,6 +1049,7 @@
 				84A625D429086ADD00C3F359 /* NetworkMonitoringService.swift in Sources */,
 				84A625D729086ADD00C3F359 /* GoogleLoginService.swift in Sources */,
 				84C92986290877D400C78F29 /* QuranVM.swift in Sources */,
+				53337153290FDEB0003952B4 /* MDPMonthYearPicker.swift in Sources */,
 				84A625DA29086ADD00C3F359 /* Keychain.swift in Sources */,
 				84A6261329086ADE00C3F359 /* PushTokenWebRepository.swift in Sources */,
 				84A6260329086ADE00C3F359 /* TextFieldState.swift in Sources */,
@@ -948,7 +1060,9 @@
 				5334494A290BF2D90090693B /* ActivityView.swift in Sources */,
 				84A6260C29086ADE00C3F359 /* RadioButtonGroup.swift in Sources */,
 				84A625EA29086ADD00C3F359 /* CustomImage.swift in Sources */,
+				53E26D19290D9E8100EEDF0D /* PrayerNotificationsView.swift in Sources */,
 				84A269A82909954100F8D058 /* TruncableText.swift in Sources */,
+				53337146290FDE69003952B4 /* MultiDatePicker.swift in Sources */,
 				84C929AA2908A06800C78F29 /* SearchBar.swift in Sources */,
 				84C929AF290914DE00C78F29 /* SettingsVM.swift in Sources */,
 				84A625F629086ADE00C3F359 /* MyPrint.swift in Sources */,
@@ -956,6 +1070,7 @@
 				84A625E229086ADD00C3F359 /* AppEnvironment.swift in Sources */,
 				84A625ED29086ADD00C3F359 /* RootViewAppearance.swift in Sources */,
 				84A6260529086ADE00C3F359 /* InputType.swift in Sources */,
+				53337155290FDEB0003952B4 /* MDPDayOfMonth.swift in Sources */,
 				5315A2B9290D575A00CDC782 /* WeeklyQuestion.swift in Sources */,
 				84A625D929086ADD00C3F359 /* LoginService.swift in Sources */,
 				84A269B62909A4E900F8D058 /* SwiperView.swift in Sources */,
@@ -969,6 +1084,7 @@
 				84A625F229086ADD00C3F359 /* CustomUserDefaultrs.swift in Sources */,
 				84A625F929086ADE00C3F359 /* AppState.swift in Sources */,
 				84C92985290877D400C78F29 /* QuranView.swift in Sources */,
+				53DA7324290ED84600F22951 /* PrayerSound.swift in Sources */,
 				84A625E429086ADD00C3F359 /* UIColor+Gradient.swift in Sources */,
 				84C929AE290914DE00C78F29 /* SettingsView.swift in Sources */,
 				84A6260E29086ADE00C3F359 /* CustomSegmented.swift in Sources */,
@@ -976,10 +1092,12 @@
 				84A625D629086ADD00C3F359 /* UserPermissions.swift in Sources */,
 				84C929C829094D9700C78F29 /* CompassHeading.swift in Sources */,
 				84A625FE29086ADE00C3F359 /* Constants.swift in Sources */,
+				53337154290FDEB0003952B4 /* MDPModel.swift in Sources */,
 				5315A2B7290D575000CDC782 /* WeklyAnswer.swift in Sources */,
 				84A625DF29086ADD00C3F359 /* SystemEventsHandler.swift in Sources */,
 				84A625E929086ADD00C3F359 /* Conditional.swift in Sources */,
 				84A6261529086ADE00C3F359 /* Router.swift in Sources */,
+				531EAD9D290E50F100155803 /* PrayerSoundVM.swift in Sources */,
 				84A625FD29086ADE00C3F359 /* Loadable.swift in Sources */,
 				84A625FB29086ADE00C3F359 /* CancelBag.swift in Sources */,
 				5334494E290BF4440090693B /* ChartView.swift in Sources */,
@@ -989,11 +1107,13 @@
 				84A625FA29086ADE00C3F359 /* DependencyContiner.swift in Sources */,
 				84A6260F29086ADE00C3F359 /* PickerSelectionState.swift in Sources */,
 				84A6260429086ADE00C3F359 /* CustomTextField.swift in Sources */,
+				53337152290FDEB0003952B4 /* MDPContentView.swift in Sources */,
 				84A269B92909B3E000F8D058 /* ContentView.swift in Sources */,
 				53251E93290C5CD7000B23BD /* SetWeeklyGoalView.swift in Sources */,
 				84C9299B2908835C00C78F29 /* SegmentedControlButtonView.swift in Sources */,
 				84A625DD29086ADD00C3F359 /* ValidationRule.swift in Sources */,
 				53251E94290C5CD7000B23BD /* SetWeeklyGoalVM.swift in Sources */,
+				53337150290FDEB0003952B4 /* MDPDayView.swift in Sources */,
 				84C9297F290874AD00C78F29 /* HomeView.swift in Sources */,
 				84A625D029086ADD00C3F359 /* APIError.swift in Sources */,
 				84C92976290873E100C78F29 /* Substring.swift in Sources */,

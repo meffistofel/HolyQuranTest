@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LargeButton: View {
+struct LargeButton<Content: View>: View {
 
     private let disabled: Bool
     private let buttonHorizontalMargins: CGFloat
@@ -15,7 +15,10 @@ struct LargeButton: View {
     private let type: LargeButtonType
     private let font: FontBook
     private let fontSize: CGFloat
+    private let backgroundColor: Color
+    private let foregroundColor: Color
     private let cornerRadius: CGFloat
+    private let content: Content
 
     init(
         type: LargeButtonType,
@@ -23,7 +26,10 @@ struct LargeButton: View {
         buttonHorizontalMargins: CGFloat = 0,
         font: FontBook = .bold,
         fontSize: CGFloat = 16,
+        backgroundColor: Color = .clear,
+        foregroundColor: Color = .gray,
         cornerRadius: CGFloat = 38,
+        @ViewBuilder content: () -> Content = { EmptyView() },
         action: @escaping () -> Void
     ) {
         self.type = type
@@ -32,15 +38,22 @@ struct LargeButton: View {
         self.font = font
         self.fontSize = fontSize
         self.action = action
+        self.content = content()
         self.cornerRadius = cornerRadius
+        self.backgroundColor = backgroundColor
+        self.foregroundColor = foregroundColor
     }
 
     var body: some View {
         HStack {
             Spacer(minLength: buttonHorizontalMargins)
             Button(action: action) {
-                Text(type.title)
-                    .frame(maxWidth: .infinity)
+                if case .prayerSound = type {
+                    content
+                } else {
+                    Text(type.title)
+                        .frame(maxWidth: .infinity)
+                }
             }
             .buttonStyle(
                 LargeButtonStyle(
@@ -48,7 +61,9 @@ struct LargeButton: View {
                     isDisabled: disabled,
                     font: font,
                     fontSize: fontSize,
-                    cornerRadius: cornerRadius
+                    cornerRadius: cornerRadius,
+                    backgroundColor: backgroundColor,
+                    foregroundColor: foregroundColor
                 )
             )
             .disabled(disabled)
@@ -64,27 +79,21 @@ struct LargeButtonStyle: ButtonStyle {
     let font: FontBook
     let fontSize: CGFloat
     let cornerRadius: CGFloat
+    let backgroundColor: Color
+    let foregroundColor: Color
 
     func makeBody(configuration: Self.Configuration) -> some View {
-        let currentForegroundColor = isDisabled || configuration.isPressed ? type.foregroundColor.opacity(0.3) : type.foregroundColor
+        let currentForegroundColor = isDisabled || configuration.isPressed ? foregroundColor.opacity(0.3) : foregroundColor
+        
         return configuration.label
             .padding()
             .foregroundColor(currentForegroundColor)
-            .background(backgroundCustomColor(with: configuration))
+            .background(configuration.isPressed ? backgroundColor.opacity(0.3) : backgroundColor)
             .cornerRadius(cornerRadius)
             .overlay(type.isNeedBorder ? RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(currentForegroundColor, lineWidth: 1)
             : nil)
             .customFont(font, size: fontSize)
-    }
-
-    @ViewBuilder
-    private func backgroundCustomColor(with configuration: Self.Configuration) -> some View {
-        if type.isNeedGradient {
-            LinearGradient(colors: isDisabled ? [Color.startGradient.opacity(0.4)] : Color.gradient, startPoint: .leading, endPoint: .trailing)
-        } else {
-            isDisabled || configuration.isPressed ? type.backgroundColor.opacity(0.3) : type.backgroundColor
-        }
     }
 }
 

@@ -9,3 +9,4 @@ import Foundation
 
 typealias EmptyClosure = () -> ()
 typealias ValueClosure<T> = (T) -> ()
+typealias ViewBuilderClosure<D, V> = (D) -> (V)

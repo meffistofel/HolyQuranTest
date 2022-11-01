@@ -10,5 +10,7 @@ import Foundation
 enum NavigationState: Hashable {
     case none
     case activity
-    case setWeeklyGoal
+    //settings
+    case prayerNotifications
+    case prayerSound(Prayer)
 }
