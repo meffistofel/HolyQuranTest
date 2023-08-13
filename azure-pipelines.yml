@@ -34,12 +34,6 @@ steps:
     displayName: 'Cache CocoaPods installation directory'
 
 
-  - task: Cache@2
-    inputs:
-     key: '"spm" | "$(Agent.OS)" | $(SPMResolvedPath)'
-     path: '$(CachePath)'
-     restoreKeys: spm | "$(Agent.OS)"
-    displayName: Cache SPM packages
 
   - task: CocoaPods@0
     displayName: 'Install dependencies'
@@ -56,7 +50,7 @@ steps:
     inputs:
       actions: 'archive'
       xcodeVersion: specifyPath
-      xcodeDeveloperDir: '/Applications/Xcode_14.2.app'
+      xcodeDeveloperDir: '/Applications/Xcode_13.4.1.app'
       configuration: 'Release'
       xcWorkspacePath: 'HolyQuranTest.xcworkspace'
       scheme: 'HolyQuranTest'
@@ -69,7 +63,7 @@ steps:
       exportOptions: 'plist'
       exportOptionsPlist: 'ExportOptions.plist'
       useXcpretty: true
-      args: '-clonedSourcePackagesDirPath $(CachePath)'
+
   - task: CopyFiles@2
     inputs:
       Contents: |
