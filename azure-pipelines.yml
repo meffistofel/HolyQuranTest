@@ -62,7 +62,7 @@ steps:
       exportArgs: '--dsym=true'
       exportOptions: 'plist'
       exportOptionsPlist: 'ExportOptions.plist'
-      useXcpretty: true
+      # useXcpretty: true
 
   - task: CopyFiles@2
     inputs:
