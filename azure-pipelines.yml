@@ -34,6 +34,13 @@ steps:
     displayName: 'Cache CocoaPods installation directory'
 
 
+  - task: Cache@2
+    inputs:
+     key: '"spm" | "$(Agent.OS)" | $(SPMResolvedPath)'
+     path: '$(CachePath)'
+     restoreKeys: spm | "$(Agent.OS)"
+    displayName: Cache SPM packages
+
   - task: CocoaPods@0
     displayName: 'Install dependencies'
     condition: ne('$(BUILD.SOURCESDIRECTORY)/Pods', 'true')
