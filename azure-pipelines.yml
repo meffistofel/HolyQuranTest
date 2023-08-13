@@ -4,16 +4,86 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- develop
+
+pr: none
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'macos-12'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - checkout: self
+    submodules: true
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - task: InstallAppleCertificate@2
+    inputs:
+      certSecureFile: '$(CERTFILENAME)'
+      certPwd: '$(CERTP12PASSWORD)'
+      keychain: 'temp'
+
+  - task: InstallAppleProvisioningProfile@1
+    inputs:
+      provisioningProfileLocation: 'secureFiles'
+      provProfileSecureFile: '$(APPTARGETPROVISIONFILENAME)'
+
+
+
+
+
+  - task: Cache@2
+    inputs:
+     key: 'CocoaPods | "$(Agent.OS)" | Podfile.lock'
+     restoreKeys: 'CocoaPods | "$(Agent.OS)"'
+     path: '$(HOME)/.cocoapods'
+    displayName: 'Cache CocoaPods installation directory'
+
+
+  - task: CocoaPods@0
+    displayName: 'Install dependencies'
+    condition: ne('$(BUILD.SOURCESDIRECTORY)/Pods', 'true')
+
+  - task: Cache@2
+    inputs:
+      key: 'CocoaPods | "$(Agent.OS)" | Pods'
+      restoreKeys: 'CocoaPods | "$(Agent.OS)"'
+      path: '$(BUILD.SOURCESDIRECTORY)/Pods'
+    displayName: 'Cache Pods directory'
+
+  - task: Xcode@5
+    inputs:
+      actions: 'archive'
+      xcodeVersion: specifyPath
+      xcodeDeveloperDir: '/Applications/Xcode_14.0.2.app'
+      configuration: 'Release'
+      xcWorkspacePath: 'HolyQuranTest.xcworkspace'
+      scheme: 'HolyQuranTest'
+      signingOption: 'default'
+      sdk: 'iphoneos'
+      packageApp: true
+      signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+      provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+      exportArgs: '--dsym=true'
+      exportOptions: 'plist'
+      exportOptionsPlist: 'ExportOptions.plist'
+      useXcpretty: true
+  - task: CopyFiles@2
+    inputs:
+      Contents: |
+        **/*.ipa
+        **/*.dSYM/**
+      TargetFolder: '$(build.artifactStagingDirectory)'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(build.artifactStagingDirectory)'
+      artifactName: 'ipa-files'
+      artifactType: 'container'
+  - task: AppCenterDistribute@3
+    inputs:
+      serverEndpoint: 'HolyQuranTest'
+      appSlug: '$(APP_SLUG)'
+      appFile: '$(Build.ArtifactStagingDirectory)/**/*.ipa'
+      symbolsDsymFiles: '$(Build.ArtifactStagingDirectory)/**/dSYMs'
+      releaseNotesOption: 'file'
+      releaseNotesFile: 'CHANGELOG'
+      destinationType: 'groups'
+      distributionGroupId: '$(DISTRIBUTION_GROUP_ID)'
