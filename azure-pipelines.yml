@@ -68,7 +68,8 @@ steps:
       exportArgs: '--dsym=true'
       exportOptions: 'plist'
       exportOptionsPlist: 'ExportOptions.plist'
-      # useXcpretty: true
+      useXcpretty: true
+      args: '-clonedSourcePackagesDirPath $(CachePath)'
   - task: CopyFiles@2
     inputs:
       Contents: |
