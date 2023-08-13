@@ -79,7 +79,7 @@ steps:
       artifactType: 'container'
   - task: AppCenterDistribute@3
     inputs:
-      serverEndpoint: 'Holy-Quran-Test'
+      serverEndpoint: 'HolyQuranTest'
       appSlug: '$(APP_SLUG)'
       appFile: '$(Build.ArtifactStagingDirectory)/**/*.ipa'
       symbolsDsymFiles: '$(Build.ArtifactStagingDirectory)/**/dSYMs'
