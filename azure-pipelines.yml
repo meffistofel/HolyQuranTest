@@ -50,7 +50,7 @@ steps:
     inputs:
       actions: 'archive'
       xcodeVersion: specifyPath
-      xcodeDeveloperDir: '/Applications/Xcode_14.3.1.app'
+      xcodeDeveloperDir: '/Applications/Xcode_13.4.1.app'
       configuration: 'Release'
       xcWorkspacePath: 'HolyQuranTest.xcworkspace'
       scheme: 'HolyQuranTest'
