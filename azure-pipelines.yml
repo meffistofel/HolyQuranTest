@@ -49,8 +49,8 @@ steps:
   - task: Xcode@5
     inputs:
       actions: 'archive'
-      xcodeVersion: specifyPath
-      xcodeDeveloperDir: '/Applications/Xcode_14.0.1.app'
+      # xcodeVersion: specifyPath
+      # xcodeDeveloperDir: '/Applications/Xcode_14.0.1.app'
       configuration: 'Release'
       xcWorkspacePath: 'HolyQuranTest.xcworkspace'
       scheme: 'HolyQuranTest'
@@ -62,7 +62,7 @@ steps:
       exportArgs: '--dsym=true'
       exportOptions: 'plist'
       exportOptionsPlist: 'ExportOptions.plist'
-      # useXcpretty: true
+      useXcpretty: true
 
   - task: CopyFiles@2
     inputs:
