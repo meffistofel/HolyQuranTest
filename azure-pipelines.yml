@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- develop
+- develop-redesign
 
 pr: none
 
@@ -26,41 +26,39 @@ steps:
       provisioningProfileLocation: 'secureFiles'
       provProfileSecureFile: '$(APPTARGETPROVISIONFILENAME)'
 
-  - task: InstallAppleProvisioningProfile@1
-    inputs:
-      provisioningProfileLocation: 'secureFiles'
-      provProfileSecureFile: '$(WIDGETTARGETPROVISIONFILENAME)'
-  
-  - task: InstallAppleProvisioningProfile@1
-    inputs:
-      provisioningProfileLocation: 'secureFiles'
-      provProfileSecureFile: '$(WATCHTARGETPROVISIONFILENAME)'
 
-  - task: InstallAppleProvisioningProfile@1
+
+
+
+  - task: Cache@2
     inputs:
-      provisioningProfileLocation: 'secureFiles'
-      provProfileSecureFile: '$(WATCHEXTTARGETPROVISIONFILENAME)'
-  - task: ios-bundle-version@1
-    inputs:
-      sourcePath: '/Users/runner/work/1/s/HolyQuran/Support/Info.plist'
-      versionCodeOption: 'buildid'
-      versionCode: '$(Build.BuildId)'
-      versionName: 
-      printFile: true
+     key: 'CocoaPods | "$(Agent.OS)" | Podfile.lock'
+     restoreKeys: 'CocoaPods | "$(Agent.OS)"'
+     path: '$(HOME)/.cocoapods'
+    displayName: 'Cache CocoaPods installation directory'
+
 
   - task: CocoaPods@0
     displayName: 'Install dependencies'
+    condition: ne('$(BUILD.SOURCESDIRECTORY)/Pods', 'true')
+
+  - task: Cache@2
+    inputs:
+      key: 'CocoaPods | "$(Agent.OS)" | Pods'
+      restoreKeys: 'CocoaPods | "$(Agent.OS)"'
+      path: '$(BUILD.SOURCESDIRECTORY)/Pods'
+    displayName: 'Cache Pods directory'
 
   - task: Xcode@5
     inputs:
       actions: 'archive'
       xcodeVersion: specifyPath
-      xcodeDeveloperDir: '/Applications/Xcode_14.0.1.app'
+      xcodeDeveloperDir: '/Applications/Xcode_14.0.2.app'
       configuration: 'Release'
-      xcWorkspacePath: 'HolyQuran.xcworkspace'
-      scheme: 'HolyQuran'
+      xcWorkspacePath: 'HolyQuranTest.xcworkspace'
+      scheme: 'HolyQuranTest'
       signingOption: 'default'
-      sdk:
+      sdk: 'iphoneos'
       packageApp: true
       signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
       provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
