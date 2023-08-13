@@ -27,9 +27,6 @@ steps:
       provProfileSecureFile: '$(APPTARGETPROVISIONFILENAME)'
 
 
-
-
-
   - task: Cache@2
     inputs:
      key: 'CocoaPods | "$(Agent.OS)" | Podfile.lock'
@@ -65,7 +62,7 @@ steps:
       exportArgs: '--dsym=true'
       exportOptions: 'plist'
       exportOptionsPlist: 'ExportOptions.plist'
-      # useXcpretty: true
+      useXcpretty: true
   - task: CopyFiles@2
     inputs:
       Contents: |
